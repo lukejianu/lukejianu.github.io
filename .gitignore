@@ -3,4 +3,5 @@
 
 # Pollen Build Artifacts
 compiled
+*.html
 
