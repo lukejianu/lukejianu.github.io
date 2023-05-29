@@ -4,7 +4,7 @@
 ◊(define lucas-site "https://priime.dev/")
 ◊(define eric-site "https://www.ekzhang.com/")
 
-◊div[#:class "main"]{
+◊div[#:class "page-content"]{
   ◊h1[#:class "page-name"]{
     Thoughts
   }

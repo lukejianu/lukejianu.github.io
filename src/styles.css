@@ -1,13 +1,16 @@
+/* Setting the font. */
 :root {
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-family: var(--font-sans);
 }
 
+/* Centering the page */
 body {
   margin: 3rem auto;
-  max-width: 600px;
+  max-width: 700px;
 }
 
+/* Navbar styling */
 header {
   display: flex;
   justify-content: space-between;
@@ -47,34 +50,35 @@ ul.nav-links > li {
   color: grey;
 }
 
-.main {
+li.selected-page {
+  border: dashed red;
+}
+
+/* Styling for pages */
+.page-content {
   font-size: 1.1em;
   margin: 3em 0;
+  display: flex;
 }
 
 .page-name {
   display: none;
 }
 
+/* Styling for Credit page */
 .left-align-bp {
   padding-inline-start: 3%;
 }
 
-li.selected-page {
-  border: dashed red;
-}
-
+/* Styling for main page */
 .my-image {
-  max-width: 50%;
+  max-width: 75%;
   height: auto;
-  display: block;
   margin: 0px auto;
   border-radius: 8px;
-  filter: grayscale(75%);
 }
 
 .my-image:hover {
-  filter: unset;
 }
 
 .caption {
@@ -84,5 +88,30 @@ li.selected-page {
   font-style: italic;
   font-size: 0.8em;
   padding: 5px 0px;
+}
+
+.two-column-container {
+  display: flex;
+}
+
+.column-1 {
+  flex: 50%;
+}
+
+.column-2 {
+  flex: 50%;
+}
+
+.image-container {
+  display: flex;
+}
+
+h4 {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.left-align-bp-main {
+  padding-inline-start: 6%;
 }
 
