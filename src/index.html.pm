@@ -26,7 +26,7 @@
           Studying economics.
         }
         ◊li[]{
-          Training to do a muscle up. 
+          Trying to do a muscle up. 
         }
       }
     }
