@@ -11,7 +11,7 @@
           CS student at Northeastern.  
         }
         ◊li[]{
-          SDE Co-op at Amazon Robotics.
+          SWE Intern at Belvedere Trading.
         }
       }
       ◊h4[]{
