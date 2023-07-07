@@ -38,7 +38,7 @@
             <a href="https://github.com/lukejianu" target="_blank">github</a>
           </li>
           <li>
-            <a href="/resume.pdf" target="_blank">resume</a>
+            <a href="/LukeJianu_Resume.pdf" target="_blank">resume</a>
           </li>
         </ul>
     </header>
