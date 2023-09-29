@@ -28,9 +28,9 @@ Currently, I'm:
 In the past, I've:
 }
 ◊items{
-  ◊item{implemented a TCP stream proxy at ◊(my-link bt-site "Belvedere Trading").}
+  ◊item{built a TCP stream proxy at ◊(my-link bt-site "Belvedere Trading").}
   ◊item{improved ◊(my-link cdm-site "Comprehensive Device Management") at ◊(my-link ar-site "Amazon Robotics").}
-  ◊item{designed tooling for high-speed cameras at ◊(my-link s3-site "S3Global").}
+  ◊item{created tooling for high-speed cameras at ◊(my-link s3-site "S3Global").}
 }
 
 ◊p{

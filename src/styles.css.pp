@@ -14,6 +14,13 @@ body {
   font-size: 1.05em;
 }
 
+@media screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+    max-width: 100%;
+  }
+}
+
 h2 {
   font-size: 1.75em;
 }
