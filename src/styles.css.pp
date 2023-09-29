@@ -2,118 +2,26 @@
 
 /* Setting the font. */ 
 :root {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Charter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-family: var(--font-sans);
 }
 
 /* Centering the page */
 body {
   margin: 3rem auto;
-  max-width: 700px; 
+  max-width: 550px; 
+  background-color: rgb(255, 243, 218);
+  font-size: 1.05em;
 }
 
-/* Navbar styling */
-header {
-  display: flex;
-  justify-content: space-between;
+h2 {
+  font-size: 1.75em;
 }
 
-.my-name {
-  margin: auto 0px;
-}
-
-.my-name a {
-  font-size: 28px;
-  text-decoration: none;
+a {
   color: black;
 }
 
-.nav {
-  margin: auto 0px;
-}
-
-.nav-links {
-  list-style: none;
-}
-
-ul.nav-links > li {
-  font-size: 1.1em;  
-  padding-left: 10px;
-  padding-right: 10px;
-  display: inline;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-}
-
-.nav-links a:hover {
+a:hover {
   color: grey;
 }
-
-li.selected-page {
-  border: dashed red;
-}
-
-/* Styling for pages */
-.page-content {
-  font-size: 1.1em;
-  margin: 3em 0;
-  display: flex;
-}
-
-.page-name {
-  display: none;
-}
-
-/* Styling for Credit page */
-.left-align-bp {
-  padding-inline-start: 3%;
-}
-
-/* Styling for main page */
-.my-image {
-  max-width: 75%;
-  height: auto;
-  margin: 0px auto;
-  border-radius: 8px;
-}
-
-.my-image:hover {
-}
-
-.caption {
-  display: block;
-  text-align: center;
-  color: grey;
-  font-style: italic;
-  font-size: 0.8em;
-  padding: 5px 0px;
-}
-
-.two-column-container {
-  display: flex;
-}
-
-.column-1 {
-  flex: 50%;
-}
-
-.column-2 {
-  flex: 50%;
-}
-
-.image-container {
-  display: flex;
-}
-
-h4 {
-  padding-top: 0px;
-  margin-top: 0px;
-}
-
-.left-align-bp-main {
-  padding-inline-start: 6%;
-}
-
