@@ -14,6 +14,13 @@ body {
   font-size: 1.05em;
 }
 
+/* Probably a better way to do this... */
+@media screen and (max-width: 600px) {
+  body {
+    max-width: 95%;
+  }
+}
+
 h2 {
   font-size: 1.75em;
 }

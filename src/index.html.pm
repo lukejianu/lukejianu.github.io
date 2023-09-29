@@ -20,8 +20,8 @@ Currently, I'm:
 }
 ◊items{
   ◊item{trying to improve my text editing setup with tmux and nvim.}
+  ◊item{training to do a clean muscle up.}
   ◊item{enjoying ◊(my-link swd-site "CS4500") with ◊(my-link matthias-site "Matthias Felleisen").}
-  ◊item{training to do consecutive clean muscle ups.}
 }
 
 ◊p{
