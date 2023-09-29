@@ -42,6 +42,6 @@ In the near future, I'll be:
 }
 
 ◊p{
-  You can find other relevant links and my contact information on my ◊(my-link "LukeJianu_Resume.pdf" "CV").
+  You can find other relevant links and my contact information on my ◊(my-link "/LukeJianu_Resume.pdf" "CV").
 }
 
