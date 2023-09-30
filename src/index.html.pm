@@ -1,6 +1,6 @@
 #lang pollen
  
-◊(define s3-site "https://www.s3global.com/")
+◊(define s3-site "https://www.s3global.com/science-eng.html")
 ◊(define cdm-site "https://www.allthingsdistributed.com/2021/07/amazon-robotics-on-aws.html")
 ◊(define ar-site "https://www.aboutamazon.com/news/tag/robotics")
 ◊(define bt-site "https://www.belvederetrading.com/")
