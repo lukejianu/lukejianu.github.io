@@ -30,4 +30,5 @@ a {
 
 a:hover {
   color: grey;
+  text-decoration: wavy underline
 }
