@@ -6,7 +6,8 @@
 ◊(define bt-site "https://www.belvederetrading.com/")
 ◊(define databricks-site "https://www.databricks.com/")
 ◊(define matthias-site "https://felleisen.org/matthias/")
-◊(define swd-site "https://course.ccs.neu.edu/cs4500f23/")
+◊(define andrey-site "https://andreypiterkin.com/")
+◊(define dbp-site "https://dbp.io/")
 
 ◊(define (my-link url text)
   ◊a[#:href url #:target "_blank"]{◊text})
@@ -19,9 +20,11 @@
 Currently, I'm:
 }
 ◊items{
-  ◊item{trying to improve my text editing setup with tmux and nvim.}
+  ◊item{designing a Rust OS (systematically) with ◊(my-link andrey-site
+                                                            "Andrey Piterkin").}
   ◊item{training to do a clean muscle up.}
-  ◊item{enjoying ◊(my-link swd-site "CS4500") with ◊(my-link matthias-site "Matthias Felleisen").}
+  ◊item{installing and configuring Arch Linux (manually).}
+  ◊item{getting ready for CS4410 (Compiler Design).}
 }
 
 ◊p{
@@ -37,7 +40,11 @@ In the past, I've:
 In the near future, I'll be:
 }
 ◊items{
-  ◊item{working on software at ◊(my-link databricks-site "Databricks").}
+  ◊item{TAing for ◊(my-link dbp-site "Daniel Patterson") (CS2800) in the spring.}
+  ◊item{working on software at ◊(my-link databricks-site "Databricks") in
+    the summer.}
+  ◊item{TAing for ◊(my-link matthias-site "Matthias Felleisen") (CS4500) in
+    the fall.}
   ◊item{adding some thoughts here (hopefully)...}
 }
 
