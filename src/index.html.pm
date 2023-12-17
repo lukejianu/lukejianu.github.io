@@ -6,8 +6,8 @@
 ◊(define bt-site "https://www.belvederetrading.com/")
 ◊(define databricks-site "https://www.databricks.com/")
 ◊(define matthias-site "https://felleisen.org/matthias/")
-◊(define andrey-site "https://andreypiterkin.com/")
 ◊(define dbp-site "https://dbp.io/")
+◊(define sro-site "https://www.lukejianu.com/small-rust-os/")
 
 ◊(define (my-link url text)
   ◊a[#:href url #:target "_blank"]{◊text})
@@ -20,8 +20,7 @@
 Currently, I'm:
 }
 ◊items{
-  ◊item{designing a Rust OS (systematically) with ◊(my-link andrey-site
-                                                            "Andrey Piterkin").}
+  ◊item{designing a ◊(my-link sro-site "Small Rust OS") systematically.}
   ◊item{training to do a clean muscle up.}
   ◊item{installing and configuring Arch Linux (manually).}
   ◊item{getting ready for CS4410 (Compiler Design).}
