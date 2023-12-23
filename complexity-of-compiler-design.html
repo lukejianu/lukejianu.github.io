@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Luke Jianu</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+  </head>
+  <body>
+    <root><style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+
+<h2>Complexity of Compiler Design</h2>
+
+<p>"Compilers are perceived to be magical artifacts, carefully crafted
+by the wizards, and unfathomable by the mere mortals."—<a href="http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf">Abdulaziz Ghuloum</a></p>
+
+<p>One of the famous books on compilers is known as "The Dragon Book". The cover feature a brave knight, wielding mighty tools:
+the Syntax Directed Translation Shield and the LALR Parser Generator Sword. The dragon, massive in comparison to the small knight,
+has scales marked Complexity of Compiler Design.</p>
+
+<h3>What is a Compiler?</h3>
+<p>A compiler is a program that consumes a program as input and produces another program.</p>
+
+<p><code>gcc</code> is a compiler. It compiles C programs to <em>binaries</em>, which you can think of as executables.</p>
+
+<div class="highlight"><div class="source"><pre><span></span><span class="c1">// foo.c</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+</div>
+
+<p>You can use <code>gcc</code> to compile <code>foo.c</code> to the executable <code>foo</code>.
+Run the executable <code>foo</code>, and we see <code>Hello, World!</code> printed on the screen.</p>
+
+<div class="highlight"><div class="source"><pre><span></span>luke@mbp ~ % gcc foo.c -o foo
+luke@mbp ~ % ./foo
+Hello, world!
+</pre></div>
+
+</div>
+
+<p><code>gcc</code> gives programmers the ability turn C source code into a binary executable that a computer
+can understand.</p>
+
+<p>Consider another compiler: <code>pdflatex</code>. I use <code>pdflatex</code> to compile my resume, written in LaTeX, into a PDF.
+<code>pdflatex</code> turns LaTeX source code, which is only understood by mathematicians and researchers, into the PDF format,
+which browsers can understand, and thus display.</p>
+
+<h4>Compilers vs. Interpreters</h4>
+<p>I learned in <a href="https://www.plai.org/">PLAI</a> that compilers and interpreters are both <em>evaluators</em>. "An evaluator reduces
+programs to values". An interpreter consumes a program, executes it line by line, and produces a value. As mentioned earlier,
+a compiler consumes a program and produces another program.</p>
+
+<div class="highlight"><div class="source"><pre><span></span><span class="k">let</span> <span class="n">compile</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="n">target_program</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+
+</div>
+
+<h3>A Simple Interpreter</h3>
+Before, designing a simple compiler, let's build an interpeter.
+
+<div class="highlight"><div class="source"><pre><span></span><span class="k">type</span> <span class="n">expr</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">NumE</span> <span class="k">of</span> <span class="n">int64</span>
+
+<span class="k">type</span> <span class="k">value</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">NumV</span> <span class="k">of</span> <span class="n">int64</span>
+
+<span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span>
+  <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
+  <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nc">NumV</span> <span class="n">n</span><span class="o">)</span>
+</pre></div>
+
+</div></root>
+    <footer>
+      Built with <a href="https://docs.racket-lang.org/pollen/" target="_blank">Pollen</a> &
+      <a href="https://racket-lang.org/" target="_blank">Racket</a>.
+    </footer>
+  </body>
+</html>
