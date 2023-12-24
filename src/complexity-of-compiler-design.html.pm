@@ -71,17 +71,67 @@ let interpret (src: source_program) : value = ...
 }
 
 ◊h3{A Simple Interpreter}
-Before, designing a simple compiler, let's build an interpeter.
+
+◊p{
+Before designing a simple compiler, let's build an interpeter. The
+◊code{expr} type represents the source program. An ◊em{Abstract Syntax Tree} is...
+}
 
 ◊highlight['ocaml
            #:line-numbers? #f]{
 type expr =
   | NumE of int64
 
-type value =
-  | NumV of int64
+type value = int64
 
 let interpret (e: expr) : value =
   match e with
-  | (NumE n) -> (NumV n)
+  | (NumE n) -> n
+}
+
+◊p{
+Before designing a simple compiler, let's build an interpeter. The
+◊code{expr} type represents the source program. An ◊em{Abstract Syntax Tree} is...
+}
+
+◊p{
+To make our source program more interesting, let's introduce new ◊em{syntax}.
+}
+
+◊highlight['ocaml
+           #:line-numbers? #f]{
+type expr =
+  | NumE of int64
+  | Add1 of expr
+  | Sub1 of expr
+
+type value = int64
+
+let rec interpret (e: expr) : value =
+  match e with
+  | (NumE n) -> n
+  | (Add1 e') -> Int64.add 1L (interpret e')
+  | (Sub1 e') -> Int64.sub (interpret e') 1L
+}
+
+◊h3{A Simple Compiler}
+
+◊highlight['ocaml
+           #:line-numbers? #f]{
+type expr =
+  | NumE of int64
+
+type reg = 
+  | RAX
+
+type arg = 
+  | Reg of reg
+  | Const of int64
+
+type instruction = 
+  | IMov of (arg * arg)
+
+let rec compile (e: expr) : instruction list =
+  match e with
+  | (NumE n) -> [IMov(Reg(RAX), Const(n))]
 }
