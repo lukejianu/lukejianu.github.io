@@ -122,20 +122,65 @@ a compiler consumes a program and produces another program.</p>
 </div>
 
 <h3>A Simple Interpreter</h3>
-Before, designing a simple compiler, let's build an interpeter.
+
+<p>Before designing a simple compiler, let's build an interpeter. The
+<code>expr</code> type represents the source program. An <em>Abstract Syntax Tree</em> is...</p>
 
 <div class="highlight"><div class="source"><pre><span></span><span class="k">type</span> <span class="n">expr</span> <span class="o">=</span>
   <span class="o">|</span> <span class="nc">NumE</span> <span class="k">of</span> <span class="n">int64</span>
 
-<span class="k">type</span> <span class="k">value</span> <span class="o">=</span>
-  <span class="o">|</span> <span class="nc">NumV</span> <span class="k">of</span> <span class="n">int64</span>
+<span class="k">type</span> <span class="k">value</span> <span class="o">=</span> <span class="n">int64</span>
 
 <span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span>
   <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
-  <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nc">NumV</span> <span class="n">n</span><span class="o">)</span>
+  <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">n</span>
 </pre></div>
 
-</div></root>
+</div>
+
+<p>Before designing a simple compiler, let's build an interpeter. The
+<code>expr</code> type represents the source program. An <em>Abstract Syntax Tree</em> is...</p>
+
+<p>To make our source program more interesting, let's introduce new <em>syntax</em>.</p>
+
+<div class="highlight"><div class="source"><pre><span></span><span class="k">type</span> <span class="n">expr</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">NumE</span> <span class="k">of</span> <span class="n">int64</span>
+  <span class="o">|</span> <span class="nc">Add1</span> <span class="k">of</span> <span class="n">expr</span>
+  <span class="o">|</span> <span class="nc">Sub1</span> <span class="k">of</span> <span class="n">expr</span>
+
+<span class="k">type</span> <span class="k">value</span> <span class="o">=</span> <span class="n">int64</span>
+
+<span class="k">let</span> <span class="k">rec</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span>
+  <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
+  <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">n</span>
+  <span class="o">|</span> <span class="o">(</span><span class="nc">Add1</span> <span class="n">e&#39;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nn">Int64</span><span class="p">.</span><span class="n">add</span> <span class="mi">1</span><span class="n">L</span> <span class="o">(</span><span class="n">interpret</span> <span class="n">e&#39;</span><span class="o">)</span>
+  <span class="o">|</span> <span class="o">(</span><span class="nc">Sub1</span> <span class="n">e&#39;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nn">Int64</span><span class="p">.</span><span class="n">sub</span> <span class="o">(</span><span class="n">interpret</span> <span class="n">e&#39;</span><span class="o">)</span> <span class="mi">1</span><span class="n">L</span>
+</pre></div>
+
+</div>
+
+<h3>A Simple Compiler</h3>
+
+<div class="highlight"><div class="source"><pre><span></span><span class="k">type</span> <span class="n">expr</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">NumE</span> <span class="k">of</span> <span class="n">int64</span>
+
+<span class="k">type</span> <span class="n">reg</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">RAX</span>
+
+<span class="k">type</span> <span class="n">arg</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">Reg</span> <span class="k">of</span> <span class="n">reg</span>
+  <span class="o">|</span> <span class="nc">Const</span> <span class="k">of</span> <span class="n">int64</span>
+
+<span class="k">type</span> <span class="n">instruction</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">IMov</span> <span class="k">of</span> <span class="o">(</span><span class="n">arg</span> <span class="o">*</span> <span class="n">arg</span><span class="o">)</span>
+
+<span class="k">let</span> <span class="k">rec</span> <span class="n">compile</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="n">instruction</span> <span class="kt">list</span> <span class="o">=</span>
+  <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
+  <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">[</span><span class="nc">IMov</span><span class="o">(</span><span class="nc">Reg</span><span class="o">(</span><span class="nc">RAX</span><span class="o">),</span> <span class="nc">Const</span><span class="o">(</span><span class="n">n</span><span class="o">))]</span>
+</pre></div>
+
+</div>
+</root>
     <footer>
       Built with <a href="https://docs.racket-lang.org/pollen/" target="_blank">Pollen</a> &
       <a href="https://racket-lang.org/" target="_blank">Racket</a>.
