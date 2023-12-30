@@ -8,21 +8,22 @@
 ◊(define matthias-site "https://felleisen.org/matthias/")
 ◊(define dbp-site "https://dbp.io/")
 ◊(define sro-site "https://www.lukejianu.com/small-rust-os/")
+◊(define mu-site "https://en.wikipedia.org/wiki/Muscle-up")
+
 
 ◊(define (my-link url text)
   ◊a[#:href url #:target "_blank"]{◊text})
 
 ◊headline{Luke Jianu}
 
-◊p{Hi, I'm Luke and I study Computer Science at Northeastern University.}
+◊p{Hi, I'm Luke, and I study Computer Science at Northeastern University.}
 
 ◊p{
 Currently, I'm:
 }
 ◊items{
   ◊item{designing a ◊(my-link sro-site "Small Rust OS") systematically.}
-  ◊item{training to do a clean muscle up.}
-  ◊item{installing and configuring Arch Linux (manually).}
+  ◊item{training to do a clean ◊(my-link mu-site "muscle-up").}
   ◊item{getting ready for CS4410 (Compiler Design).}
 }
 
