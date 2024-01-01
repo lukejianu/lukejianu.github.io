@@ -12,7 +12,7 @@ by the wizards, and unfathomable by the mere mortals."—◊(link "http://scheme
 }
 
 ◊p{
-One of the famous books on compilers is known as "The Dragon Book". The cover feature a brave knight, wielding mighty tools:
+One of the famous books on compilers is known as "The Dragon Book". The cover features a brave knight, wielding mighty tools:
 the Syntax Directed Translation Shield and the LALR Parser Generator Sword. The dragon, massive in comparison to the small knight,
 has scales marked Complexity of Compiler Design.
 }
@@ -120,11 +120,6 @@ type value = int64
 let interpret (e: expr) : value =
   match e with
   | (NumE n) -> n
-}
-
-◊p{
-Before designing a simple compiler, let's build an interpeter. The
-◊code{expr} type represents the source program. An ◊em{Abstract Syntax Tree} is...
 }
 
 ◊p{
