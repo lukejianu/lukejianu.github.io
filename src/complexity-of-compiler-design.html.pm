@@ -1,6 +1,8 @@
 #lang pollen
 ◊(require pollen/unstable/pygments)
 ◊(make-highlight-css)
+◊(define blerner-site "https://www.khoury.northeastern.edu/home/blerner/")
+◊(define cs4410-site "https://course.ccs.neu.edu/cs4410/")
 
 ◊headline{Complexity of Compiler Design}
 
@@ -13,6 +15,11 @@ by the wizards, and unfathomable by the mere mortals."—◊(link "http://scheme
 One of the famous books on compilers is known as "The Dragon Book". The cover feature a brave knight, wielding mighty tools:
 the Syntax Directed Translation Shield and the LALR Parser Generator Sword. The dragon, massive in comparison to the small knight,
 has scales marked Complexity of Compiler Design.
+}
+
+◊p{
+This blog post is my attempt to put what I learned in the first few lectures
+of ◊(link blerner-site "Ben Lerner's") ◊(link cs4410-site "CS4410") course in my own words.
 }
 
 ◊h3{What is a Compiler?}
@@ -51,18 +58,7 @@ Hello, world!
 can understand.
 }
 
-◊p{
-Consider another compiler: ◊code{pdflatex}. I use ◊code{pdflatex} to compile my resume, written in LaTeX, into a PDF.
-◊code{pdflatex} turns LaTeX source code, which is only understood by mathematicians and researchers, into the PDF format,
-which browsers can understand, and thus display.
-}
-
 ◊h4{Compilers vs. Interpreters}
-◊p{
-I learned in ◊(link "https://www.plai.org/" "PLAI") that compilers and interpreters are both ◊em{evaluators}. "An evaluator reduces
-programs to values". An interpreter consumes a program, executes it line by line, and produces a value. As mentioned earlier,
-a compiler consumes a program and produces another program.
-}
 
 ◊highlight['ocaml
            #:line-numbers? #f]{
@@ -70,11 +66,48 @@ let compile (src: source_program) : target_program = ...
 let interpret (src: source_program) : value = ...
 }
 
+◊p{
+I learned in ◊(link "https://www.plai.org/" "PLAI") that compilers and interpreters are both ◊em{evaluators}—"An evaluator reduces
+programs to values".
+}
+
+◊p{
+An interpreter consumes a program and runs it. In other words, it reduces a program all the way into a value.
+
+◊highlight['python
+           #:line-numbers? #f]{
+# foo.py
+
+print("Hello, world!")
+}
+
+◊highlight['shell
+           #:line-numbers? #f]{
+luke@mbp ~ % python foo.py
+Hello, world!
+}
+}
+
+◊p{
+We can clearly see that ◊code{python3 foo.py} takes in a program and executes the code directly, which is
+why we see ◊code{"Hello, world!"} printed. This is in constrast with ◊code{gcc}, which produced another program.
+}
+
+◊p{
+Consider an important difference: after a compiler has compiled a program, the compiler
+can be thrown away. However, throwing away an interpreter after evaluating a program would mean that program can no longer be run!
+}
+
+◊p{
+As mentioned earlier, a compiler consumes a program and produces another program. The resulting program is a
+◊em{reduced program}, meaning that it's ◊em{closer} to the point where an interpreter can run the program.
+}
+
 ◊h3{A Simple Interpreter}
 
 ◊p{
 Before designing a simple compiler, let's build an interpeter. The
-◊code{expr} type represents the source program. An ◊em{Abstract Syntax Tree} is...
+◊code{expr} type represents the source program.
 }
 
 ◊highlight['ocaml

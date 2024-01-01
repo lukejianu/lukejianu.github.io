@@ -10,10 +10,6 @@
 ◊(define sro-site "https://www.lukejianu.com/small-rust-os/")
 ◊(define mu-site "https://en.wikipedia.org/wiki/Muscle-up")
 
-
-◊(define (my-link url text)
-  ◊a[#:href url #:target "_blank"]{◊text})
-
 ◊headline{Luke Jianu}
 
 ◊p{Hi, I'm Luke, and I study Computer Science at Northeastern University.}
@@ -22,33 +18,33 @@
 Currently, I'm:
 }
 ◊items{
-  ◊item{designing a ◊(my-link sro-site "Small Rust OS") systematically.}
-  ◊item{training to do a clean ◊(my-link mu-site "muscle-up").}
+  ◊item{designing a ◊(link sro-site "Small Rust OS") systematically.}
+  ◊item{training to do a clean ◊(link mu-site "muscle-up").}
   ◊item{getting ready for CS4410 (Compiler Design).}
+  ◊item{starting a ◊(link "/blog.html" "small blog").}
 }
 
 ◊p{
 In the past, I've:
 }
 ◊items{
-  ◊item{built a TCP stream proxy at ◊(my-link bt-site "Belvedere Trading").}
-  ◊item{improved ◊(my-link cdm-site "Comprehensive Device Management") at ◊(my-link ar-site "Amazon Robotics").}
-  ◊item{created tooling for high-speed cameras at ◊(my-link s3-site "S3Global").}
+  ◊item{built a TCP stream proxy at ◊(link bt-site "Belvedere Trading").}
+  ◊item{improved ◊(link cdm-site "Comprehensive Device Management") at ◊(link ar-site "Amazon Robotics").}
+  ◊item{created tooling for high-speed cameras at ◊(link s3-site "S3Global").}
 }
 
 ◊p{
 In the near future, I'll be:
 }
 ◊items{
-  ◊item{TAing for ◊(my-link dbp-site "Daniel Patterson") (CS2800) in the spring.}
-  ◊item{working on software at ◊(my-link databricks-site "Databricks") in
+  ◊item{TAing for ◊(link dbp-site "Daniel Patterson") (CS2800) in the spring.}
+  ◊item{working on software at ◊(link databricks-site "Databricks") in
     the summer.}
-  ◊item{TAing for ◊(my-link matthias-site "Matthias Felleisen") (CS4500) in
+  ◊item{TAing for ◊(link matthias-site "Matthias Felleisen") (CS4500) in
     the fall.}
-  ◊item{adding some thoughts here (hopefully)...}
 }
 
 ◊p{
-  You can find other relevant links and my contact information on my ◊(my-link "/LukeJianu_Resume.pdf" "CV").
+  You can find other relevant links and my contact information on my ◊(link "/LukeJianu_Resume.pdf" "CV").
 }
 
