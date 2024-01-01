@@ -69,14 +69,19 @@
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 
+
+
 <h2>Complexity of Compiler Design</h2>
 
 <p>"Compilers are perceived to be magical artifacts, carefully crafted
-by the wizards, and unfathomable by the mere mortals."—<a href="http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf">Abdulaziz Ghuloum</a></p>
+by the wizards, and unfathomable by the mere mortals."—<a href="http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf" target="_blank">Abdulaziz Ghuloum</a></p>
 
 <p>One of the famous books on compilers is known as "The Dragon Book". The cover feature a brave knight, wielding mighty tools:
 the Syntax Directed Translation Shield and the LALR Parser Generator Sword. The dragon, massive in comparison to the small knight,
 has scales marked Complexity of Compiler Design.</p>
+
+<p>This blog post is my attempt to put what I learned in the first few lectures
+of <a href="https://www.khoury.northeastern.edu/home/blerner/" target="_blank">Ben Lerner's</a> <a href="https://course.ccs.neu.edu/cs4410/" target="_blank">CS4410</a> course in my own words.</p>
 
 <h3>What is a Compiler?</h3>
 <p>A compiler is a program that consumes a program as input and produces another program.</p>
@@ -106,14 +111,7 @@ Hello, world!
 <p><code>gcc</code> gives programmers the ability turn C source code into a binary executable that a computer
 can understand.</p>
 
-<p>Consider another compiler: <code>pdflatex</code>. I use <code>pdflatex</code> to compile my resume, written in LaTeX, into a PDF.
-<code>pdflatex</code> turns LaTeX source code, which is only understood by mathematicians and researchers, into the PDF format,
-which browsers can understand, and thus display.</p>
-
 <h4>Compilers vs. Interpreters</h4>
-<p>I learned in <a href="https://www.plai.org/">PLAI</a> that compilers and interpreters are both <em>evaluators</em>. "An evaluator reduces
-programs to values". An interpreter consumes a program, executes it line by line, and produces a value. As mentioned earlier,
-a compiler consumes a program and produces another program.</p>
 
 <div class="highlight"><div class="source"><pre><span></span><span class="k">let</span> <span class="n">compile</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="n">target_program</span> <span class="o">=</span> <span class="o">...</span>
 <span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span> <span class="o">...</span>
@@ -121,10 +119,37 @@ a compiler consumes a program and produces another program.</p>
 
 </div>
 
+<p>I learned in <a href="https://www.plai.org/" target="_blank">PLAI</a> that compilers and interpreters are both <em>evaluators</em>—"An evaluator reduces
+programs to values".</p>
+
+<p>An interpreter consumes a program and runs it. In other words, it reduces a program all the way into a value.
+
+<div class="highlight"><div class="source"><pre><span></span><span class="c1"># foo.py</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, world!"</span><span class="p">)</span>
+</pre></div>
+
+</div>
+
+<div class="highlight"><div class="source"><pre><span></span>luke@mbp ~ % python foo.py
+Hello, world!
+</pre></div>
+
+</div></p>
+
+<p>We can clearly see that <code>python3 foo.py</code> takes in a program and executes the code directly, which is
+why we see <code>"Hello, world!"</code> printed. This is in constrast with <code>gcc</code>, which produced another program.</p>
+
+<p>Consider an important difference: after a compiler has compiled a program, the compiler
+can be thrown away. However, throwing away an interpreter after evaluating a program would mean that program can no longer be run!</p>
+
+<p>As mentioned earlier, a compiler consumes a program and produces another program. The resulting program is a
+<em>reduced program</em>, meaning that it's <em>closer</em> to the point where an interpreter can run the program.</p>
+
 <h3>A Simple Interpreter</h3>
 
 <p>Before designing a simple compiler, let's build an interpeter. The
-<code>expr</code> type represents the source program. An <em>Abstract Syntax Tree</em> is...</p>
+<code>expr</code> type represents the source program.</p>
 
 <div class="highlight"><div class="source"><pre><span></span><span class="k">type</span> <span class="n">expr</span> <span class="o">=</span>
   <span class="o">|</span> <span class="nc">NumE</span> <span class="k">of</span> <span class="n">int64</span>
