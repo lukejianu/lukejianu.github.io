@@ -27,21 +27,15 @@
 Currently, I'm:
 }
 ◊items{
-  ◊item{designing a ◊(link sro-site "Small Rust OS") systematically.}
-  ◊item{TAing for ◊(link dbp-site "Daniel Patterson")'s ◊(link cs2800-site "CS2800").}
-  ◊item{training to do a clean ◊(link mu-site "muscle-up").}
-  ◊item{taking classes:
-   ◊(link cs4410-site "CS4410"),
-   ◊(link cs4700-site "CS4700"),
-   ◊(link cy3740-site "CY3740"),
-   ◊(link cs3620-site "CS3620")
-  }
+  ◊item{working on software at ◊(link databricks-site "Databricks").}
+  ◊item{climbing, biking, and reading.}
 }
 
 ◊p{
 In the past, I've:
 }
 ◊items{
+  ◊item{TA'd for ◊(link dbp-site "Daniel Patterson")'s ◊(link cs2800-site "CS2800").}
   ◊item{built a TCP stream proxy at ◊(link bt-site "Belvedere Trading").}
   ◊item{improved ◊(link cdm-site "Comprehensive Device Management") at ◊(link ar-site "Amazon Robotics").}
   ◊item{created tooling for high-speed cameras at ◊(link s3-site "S3Global").}
@@ -51,9 +45,8 @@ In the past, I've:
 In the near future, I'll be:
 }
 ◊items{
-  ◊item{working on software at ◊(link databricks-site "Databricks") in
-    the summer.}
-  ◊item{TAing for ◊(link matthias-site "Matthias Felleisen")'s ◊(link cs4500-site "CS4500") in the fall.}
+  ◊item{TAing Fundies I with ◊(link dbp-site "Daniel Patterson").}
+  ◊item{TAing Fundies IV (Software Development) with ◊(link matthias-site "Matthias Felleisen").}
 }
 
 ◊p{
