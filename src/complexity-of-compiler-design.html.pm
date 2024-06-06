@@ -6,7 +6,7 @@
 
 ◊headline{Complexity of Compiler Design}
 
-◊p{
+◊blockquote{
 "Compilers are perceived to be magical artifacts, carefully crafted
 by the wizards, and unfathomable by the mere mortals."—◊(link "http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf" "Abdulaziz Ghuloum")
 }
@@ -19,7 +19,7 @@ has scales marked Complexity of Compiler Design.
 
 ◊p{
 This blog post is my attempt to put what I learned in the first few lectures
-of ◊(link blerner-site "Ben Lerner's") ◊(link cs4410-site "CS4410") course in my own words.
+of ◊(link blerner-site "Ben Lerner")'s ◊(link cs4410-site "CS4410") course in my own words.
 }
 
 ◊h3{What is a Compiler?}
