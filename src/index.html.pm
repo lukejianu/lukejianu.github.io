@@ -35,7 +35,7 @@ Currently, I'm:
 In the past, I've:
 }
 ◊items{
-  ◊item{TA'd for ◊(link dbp-site "Daniel Patterson")'s ◊(link cs2800-site "CS2800").}
+  ◊item{TA'd for ◊(link dbp-site "Daniel Patterson")'s ◊(link cs2800-site "Logic & Computation").}
   ◊item{built a TCP stream proxy at ◊(link bt-site "Belvedere Trading").}
   ◊item{improved ◊(link cdm-site "Comprehensive Device Management") at ◊(link ar-site "Amazon Robotics").}
   ◊item{created tooling for high-speed cameras at ◊(link s3-site "S3Global").}
@@ -45,8 +45,8 @@ In the past, I've:
 In the near future, I'll be:
 }
 ◊items{
-  ◊item{TAing Fundies I with ◊(link dbp-site "Daniel Patterson").}
-  ◊item{TAing Fundies IV (Software Development) with ◊(link matthias-site "Matthias Felleisen").}
+  ◊item{TAing for ◊(link dbp-site "Daniel Patterson")'s Fundies I.}
+  ◊item{TAing for ◊(link matthias-site "Matthias Felleisen")'s Fundies IV.}
 }
 
 ◊p{
