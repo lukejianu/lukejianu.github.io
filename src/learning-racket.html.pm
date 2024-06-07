@@ -35,11 +35,9 @@ programs Racketeers use (editors, tools, etc.) and demonstrates how to run Racke
 This chapter teaches the reader the part of Racket that students see in ISL+.
 The reader is introduced to:
 ◊items{
-  ◊item{values - ...}
-  ◊item{definitions - ...}
-  ◊item{identifiers - ...}
-  ◊item{expressions - ...}
-  ◊item{bindings - ...}
+  ◊item{values - pieces of data that cannot be further reduced.}
+  ◊item{definitions - statements that associate names with values.}
+  ◊item{expressions - represent computation - are eventually reduced to a value.}
 }
 }
 
