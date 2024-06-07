@@ -4,7 +4,7 @@
 ◊(define blerner-site "https://www.khoury.northeastern.edu/home/blerner/")
 ◊(define cs4410-site "https://course.ccs.neu.edu/cs4410/")
 
-◊headline{Complexity of Compiler Design}
+◊headline{Compilers}
 
 ◊blockquote{
 "Compilers are perceived to be magical artifacts, carefully crafted
