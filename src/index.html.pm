@@ -21,6 +21,8 @@
 
 ◊headline{Luke Jianu}
 
+◊blockquote{"Programs must be written for people to read, and only incidentally for machines to execute."—Abelson & Sussman}
+
 ◊p{Hi, I'm Luke, and I study Computer Science at Northeastern University.}
 
 ◊p{

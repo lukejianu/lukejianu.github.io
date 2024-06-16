@@ -32,3 +32,7 @@ a:hover {
   color: grey;
   text-decoration: wavy underline
 }
+
+blockquote {
+  background: #f4f4eb;
+}
