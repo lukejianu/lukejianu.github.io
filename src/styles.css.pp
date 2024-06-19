@@ -36,3 +36,7 @@ a:hover {
 blockquote {
   background: #f4f4eb;
 }
+
+footer {
+  font-size: 0.7em;
+}
