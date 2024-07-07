@@ -9,3 +9,4 @@
 
 (define (link url text) `(a ((href ,url) (target "_blank")) ,text))
 
+(define (redirect url) `(meta ((http-equiv "refresh") (content ,(string-append "0; url=https://" url)))))
