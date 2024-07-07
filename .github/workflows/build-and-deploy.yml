@@ -33,9 +33,9 @@ jobs:
           
       - name: Build and Publish Pollen Source Files
         run: > 
-          mkdir build &&
+          mkdir -p build/small-rust-os &&
           raco pollen render src && raco pollen render src/small-rust-os &&
-          raco pollen publish src build && raco pollen publish src/small-rust-os build
+          raco pollen publish src build && raco pollen publish src/small-rust-os build/small-rust-os
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
