@@ -32,7 +32,10 @@ jobs:
         run: raco pkg install --auto pollen
           
       - name: Build and Publish Pollen Source Files
-        run: mkdir build && raco pollen render src && raco pollen publish src build
+        run: > 
+          mkdir build &&
+          raco pollen render src && raco pollen render src/small-rust-os &&
+          raco pollen publish src build && raco pollen publish src/small-rust-os build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
