@@ -8,5 +8,4 @@
 (define item (default-tag-function 'li 'p))
 
 (define (link url text) `(a ((href ,url) (target "_blank")) ,text))
-
-(define (redirect url) `(meta ((http-equiv "refresh") (content ,(string-append "0; url=https://" url)))))
+(define (link-no-target url text) `(a ((href ,url)) ,text))
