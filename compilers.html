@@ -89,11 +89,11 @@ of <a href="https://www.khoury.northeastern.edu/home/blerner/">Ben Lerner</a>'s 
 <p><code>gcc</code> is a compiler. It compiles C programs to <em>binaries</em>, which you can think of as executables.</p>
 
 <div class="highlight"><div class="source"><pre><span></span><span class="c1">// foo.c</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 </div>
@@ -101,9 +101,9 @@ of <a href="https://www.khoury.northeastern.edu/home/blerner/">Ben Lerner</a>'s 
 <p>You can use <code>gcc</code> to compile <code>foo.c</code> to the executable <code>foo</code>.
 Run the executable <code>foo</code>, and we see <code>Hello, World!</code> printed on the screen.</p>
 
-<div class="highlight"><div class="source"><pre><span></span>luke@mbp<span class="w"> </span>~<span class="w"> </span>%<span class="w"> </span>gcc<span class="w"> </span>foo.c<span class="w"> </span>-o<span class="w"> </span>foo
-luke@mbp<span class="w"> </span>~<span class="w"> </span>%<span class="w"> </span>./foo
-Hello,<span class="w"> </span>world!
+<div class="highlight"><div class="source"><pre><span></span>luke@mbp ~ % gcc foo.c -o foo
+luke@mbp ~ % ./foo
+Hello, world!
 </pre></div>
 
 </div>
@@ -114,7 +114,7 @@ can understand.</p>
 <h4>Compilers vs. Interpreters</h4>
 
 <div class="highlight"><div class="source"><pre><span></span><span class="k">let</span> <span class="n">compile</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="n">target_program</span> <span class="o">=</span> <span class="o">...</span>
-<span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="n">value</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">src</span><span class="o">:</span> <span class="n">source_program</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span> <span class="o">...</span>
 </pre></div>
 
 </div>
@@ -131,8 +131,8 @@ programs to values".</p>
 
 </div>
 
-<div class="highlight"><div class="source"><pre><span></span>luke@mbp<span class="w"> </span>~<span class="w"> </span>%<span class="w"> </span>python<span class="w"> </span>foo.py
-Hello,<span class="w"> </span>world!
+<div class="highlight"><div class="source"><pre><span></span>luke@mbp ~ % python foo.py
+Hello, world!
 </pre></div>
 
 </div></p>
@@ -154,9 +154,9 @@ can be thrown away. However, throwing away an interpreter after evaluating a pro
 <div class="highlight"><div class="source"><pre><span></span><span class="k">type</span> <span class="n">expr</span> <span class="o">=</span>
   <span class="o">|</span> <span class="nc">NumE</span> <span class="k">of</span> <span class="n">int64</span>
 
-<span class="k">type</span> <span class="n">value</span> <span class="o">=</span> <span class="n">int64</span>
+<span class="k">type</span> <span class="k">value</span> <span class="o">=</span> <span class="n">int64</span>
 
-<span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="n">value</span> <span class="o">=</span>
+<span class="k">let</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span>
   <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
   <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">n</span>
 </pre></div>
@@ -170,9 +170,9 @@ can be thrown away. However, throwing away an interpreter after evaluating a pro
   <span class="o">|</span> <span class="nc">Add1</span> <span class="k">of</span> <span class="n">expr</span>
   <span class="o">|</span> <span class="nc">Sub1</span> <span class="k">of</span> <span class="n">expr</span>
 
-<span class="k">type</span> <span class="n">value</span> <span class="o">=</span> <span class="n">int64</span>
+<span class="k">type</span> <span class="k">value</span> <span class="o">=</span> <span class="n">int64</span>
 
-<span class="k">let</span> <span class="k">rec</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="n">value</span> <span class="o">=</span>
+<span class="k">let</span> <span class="k">rec</span> <span class="n">interpret</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">expr</span><span class="o">)</span> <span class="o">:</span> <span class="k">value</span> <span class="o">=</span>
   <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
   <span class="o">|</span> <span class="o">(</span><span class="nc">NumE</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">n</span>
   <span class="o">|</span> <span class="o">(</span><span class="nc">Add1</span> <span class="n">e&#39;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nn">Int64</span><span class="p">.</span><span class="n">add</span> <span class="mi">1</span><span class="n">L</span> <span class="o">(</span><span class="n">interpret</span> <span class="n">e&#39;</span><span class="o">)</span>
