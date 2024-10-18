@@ -21,7 +21,7 @@
 
 ◊headline{Luke Jianu}
 
-◊blockquote{"Programs must be written for people to read, and only incidentally for machines to execute."—Abelson & Sussman}
+◊blockquote{"Code is written for others to understand the developer’s thoughts, and it accidentally runs on computers."}
 
 ◊p{Hi, I'm Luke, and I study Computer Science at Northeastern University.}
 
