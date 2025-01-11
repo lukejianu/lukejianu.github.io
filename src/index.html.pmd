@@ -7,14 +7,15 @@
 ◊(define db-site "https://www.databricks.com/")
 ◊(define pltr-site "https://www.palantir.com/")
 
-◊(define matthias-site "https://felleisen.org/matthias/")
+◊(define mf-site "https://felleisen.org/matthias/")
 ◊(define dbp-site "https://dbp.io/")
 ◊(define ben-site "https://www.khoury.northeastern.edu/home/blerner/")
 ◊(define cameron-site "https://camoy.name/")
 ◊(define michael-site "https://mballantyne.net/")
 
 ◊(define cs2500-site "https://pages.github.khoury.northeastern.edu/2500/2024F/")
-◊(define cs2800-site "https://course.ccs.neu.edu/cs2800sp24/index.html")
+◊(define cs2800-s24-site "https://course.ccs.neu.edu/cs2800sp24/index.html")
+◊(define cs2800-s25-site "https://course.ccs.neu.edu/cs2800sp25/index.html")
 ◊(define cs4500-site "https://felleisen.org/matthias/4500-f24")
 ◊(define hyol-site "https://mballantyne.net/hyol/")
 
@@ -25,15 +26,15 @@
 Luke Jianu
 -----------------
  
-> \"Code is written for others to understand the developer's thoughts, and it accidentally runs on computers."
+> \"Code is written for others to understand the developer's thoughts, and it accidentally runs on computers.\"
 
 Hi, I\'m Luke, and I study Computer Science at Northeastern University.
 
 Currently, I\'m:
 
-- learning about Racket macros ([MaLR](◊malr-site) & [syntax-spec](◊syntax-spec-docs-site)).
+- TAing for [Daniel Patterson](◊dbp-site)\'s [Logic & Computation](◊cs2800-s25-site) (again).
 
-- improving [Logical Student Language](◊lsl-site) with [Cameron Moy](◊cameron-site).
+- taking [Michael Ballantyne](◊michael-site)\'s [Hack Your Own Language](◊hyol-site).
 
 - climbing, cycling, and reading.
 
@@ -47,15 +48,11 @@ In the past, I\'ve:
 
 - created tooling for high-speed cameras at [S3Global](◊s3-site).
 
-- TA\'d for [Daniel Patterson](◊dbp-site)\'s [Logic & Computation](◊cs2800-site) and [Fundies I](◊cs2500-site).
+- TA\'d for [Daniel Patterson](◊dbp-site)\'s [Logic & Computation](◊cs2800-s24-site) and [Fundies I](◊cs2500-site).
 
-- TA\'d for [Ben Lerner](◊ben-site) and [Matthias Felleisen](◊matthias-site)\'s [Fundies IV](◊cs4500-site).
+- TA\'d for [Ben Lerner](◊ben-site) and [Matthias Felleisen](◊mf-site)\'s [Fundies IV](◊cs4500-site).
 
 In the near future, I\'ll be:
-
-- TAing for [Daniel Patterson](◊dbp-site)\'s Logic & Computation again!
-
-- taking [Michael Ballantyne](◊michael-site)\'s [Hack Your Own Language](◊hyol-site).
 
 - working on software at [Palantir](◊pltr-site) in Seattle.
 
