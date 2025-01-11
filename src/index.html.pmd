@@ -1,0 +1,62 @@
+#lang pollen
+ 
+◊(define s3-site "https://www.s3global.com/science-eng.html")
+◊(define cdm-site "https://www.allthingsdistributed.com/2021/07/amazon-robotics-on-aws.html")
+◊(define ar-site "https://www.aboutamazon.com/news/tag/robotics")
+◊(define bt-site "https://www.belvederetrading.com/")
+◊(define db-site "https://www.databricks.com/")
+◊(define pltr-site "https://www.palantir.com/")
+
+◊(define matthias-site "https://felleisen.org/matthias/")
+◊(define dbp-site "https://dbp.io/")
+◊(define ben-site "https://www.khoury.northeastern.edu/home/blerner/")
+◊(define cameron-site "https://camoy.name/")
+◊(define michael-site "https://mballantyne.net/")
+
+◊(define cs2500-site "https://pages.github.khoury.northeastern.edu/2500/2024F/")
+◊(define cs2800-site "https://course.ccs.neu.edu/cs2800sp24/index.html")
+◊(define cs4500-site "https://felleisen.org/matthias/4500-f24")
+◊(define hyol-site "https://mballantyne.net/hyol/")
+
+◊(define malr-site "https://rmculpepper.github.io/malr/v2")
+◊(define lsl-site "https://docs.racket-lang.org/lsl/")
+◊(define syntax-spec-docs-site "https://docs.racket-lang.org/syntax-spec-v2/index.html")
+
+Luke Jianu
+-----------------
+ 
+> \"Code is written for others to understand the developer's thoughts, and it accidentally runs on computers."
+
+Hi, I\'m Luke, and I study Computer Science at Northeastern University.
+
+Currently, I\'m:
+
+- learning about Racket macros ([MaLR](◊malr-site) & [syntax-spec](◊syntax-spec-docs-site)).
+
+- improving [Logical Student Language](◊lsl-site) with [Cameron Moy](◊cameron-site).
+
+- climbing, cycling, and reading.
+
+In the past, I\'ve:
+
+- load tested a distributed OLTP database at [Databricks](◊db-site).
+
+- built a TCP stream proxy at [Belvedere Trading](◊bt-site).
+
+- improved [Comprehensive Device Management](◊cdm-site) at [Amazon Robotics](◊ar-site).
+
+- created tooling for high-speed cameras at [S3Global](◊s3-site).
+
+- TA\'d for [Daniel Patterson](◊dbp-site)\'s [Logic & Computation](◊cs2800-site) and [Fundies I](◊cs2500-site).
+
+- TA\'d for [Ben Lerner](◊ben-site) and [Matthias Felleisen](◊matthias-site)\'s [Fundies IV](◊cs4500-site).
+
+In the near future, I\'ll be:
+
+- TAing for [Daniel Patterson](◊dbp-site)\'s Logic & Computation again!
+
+- taking [Michael Ballantyne](◊michael-site)\'s [Hack Your Own Language](◊hyol-site).
+
+- working on software at [Palantir](◊pltr-site) in Seattle.
+
+You can find other relevant links and my contact information on my [CV](/LukeJianu_Resume.pdf).
