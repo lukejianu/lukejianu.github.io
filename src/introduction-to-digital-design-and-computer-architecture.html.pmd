@@ -1,0 +1,11 @@
+#lang pollen
+
+<style>
+body {
+  margin: 3rem auto;
+  max-width: 700px;
+  font-size: 1.05em;
+}
+</style>
+
+# Introduction to Digital Design and Computer Architecture
