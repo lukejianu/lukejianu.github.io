@@ -1,11 +1,8 @@
 #lang racket/base
 
-(require markdown)
 (require pollen/tag)
 
 (provide (all-defined-out))
-
-(current-strict-markdown? #t) ;; Disables smart quotes.
 
 (define headline (default-tag-function 'h2))
 
