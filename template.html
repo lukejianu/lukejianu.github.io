@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>◊|my-name|</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="/highlight/styles/default.css">
+    <script src="/highlight/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
     ◊(->html doc)
