@@ -23,22 +23,21 @@
 ◊(define lsl-site "https://docs.racket-lang.org/lsl/")
 ◊(define syntax-spec-docs-site "https://docs.racket-lang.org/syntax-spec-v2/index.html")
 
-Luke Jianu
------------------
+## Luke Jianu
  
-> \"Code is written for others to understand the developer's thoughts, and it accidentally runs on computers.\"
+> "Code is written for others to understand the developer's thoughts, and it accidentally runs on computers."
 
-Hi, I\'m Luke, and I study Computer Science at Northeastern University.
+Hi, I'm Luke, and I study Computer Science at Northeastern University.
 
-Currently, I\'m:
+Currently, I'm:
 
-- TAing for [Daniel Patterson](◊dbp-site)\'s [Logic & Computation](◊cs2800-s25-site) (again).
+- TAing for [Daniel Patterson](◊dbp-site)'s [Logic & Computation](◊cs2800-s25-site) (again).
 
-- taking [Michael Ballantyne](◊michael-site)\'s [Hack Your Own Language](◊hyol-site).
+- taking [Michael Ballantyne](◊michael-site)'s [Hack Your Own Language](◊hyol-site).
 
 - climbing, cycling, and reading.
 
-In the past, I\'ve:
+In the past, I've:
 
 - load tested a distributed OLTP database at [Databricks](◊db-site).
 
@@ -48,11 +47,11 @@ In the past, I\'ve:
 
 - created tooling for high-speed cameras at [S3Global](◊s3-site).
 
-- TA\'d for [Daniel Patterson](◊dbp-site)\'s [Logic & Computation](◊cs2800-s24-site) and [Fundies I](◊cs2500-site).
+- TA'd for [Daniel Patterson](◊dbp-site)'s [Logic & Computation](◊cs2800-s24-site) and [Fundies I](◊cs2500-site).
 
-- TA\'d for [Ben Lerner](◊ben-site) and [Matthias Felleisen](◊mf-site)\'s [Fundies IV](◊cs4500-site).
+- TA'd for [Ben Lerner](◊ben-site) and [Matthias Felleisen](◊mf-site)'s [Fundies IV](◊cs4500-site).
 
-In the near future, I\'ll be:
+In the near future, I'll be:
 
 - working on software at [Palantir](◊pltr-site) in Seattle.
 
