@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="stylesheet" href="/highlight/styles/default.css">
     <script src="/highlight/highlight.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>hljs.highlightAll();</script>
   </head>
   <body>
     ◊(->html doc)
