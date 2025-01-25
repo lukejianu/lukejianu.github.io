@@ -5,7 +5,7 @@
 compiled
 build
 *.html
-*.css
+src/styles.css
 
 # Vim
 *.swp
