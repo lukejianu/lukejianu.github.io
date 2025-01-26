@@ -32,7 +32,12 @@ He says these areas are linked by the question:
 8. What is a regular expression?
 9. Are regular expressions and finite automata equivalent in their descriptive
 power?
+10. What is a Generalized Nondeterministic Finite Automaton?
 
 ## Computability
+
+```python
+1 + 2
+```
 
 ## Complexity
