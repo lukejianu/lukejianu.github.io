@@ -29,7 +29,9 @@ jobs:
       - name: Build and Publish Pollen Source Files
         run: > 
           mkdir -p build/small-rust-os build/blog &&
-          raco pollen render src src/small-rust-os src/blog &&
+          raco pollen render src &&
+          raco pollen render src/small-rust-os &&
+          raco pollen render src/blog &&
           raco pollen publish src build &&
           raco pollen publish src/small-rust-os build/small-rust-os &&
           raco pollen publish src/blog build/blog
