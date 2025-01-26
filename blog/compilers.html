@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Luke Jianu</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="/highlight/styles/default.css">
+    <script src="/highlight/highlight.js"></script>
+    <script>hljs.highlightAll();</script>
+  </head>
+  <body>
+    <root><h2 id="compilers">Compilers</h2><blockquote><p>&ldquo;Compilers are perceived to be magical artifacts, carefully crafted by the wizards, and unfathomable by the mere mortals.&rdquo;—<a href="http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf">Abdulaziz Ghuloum</a></p></blockquote><p>One of the famous books on compilers is known as &ldquo;The Dragon Book&rdquo;. The cover features a brave knight, wielding mighty tools: the Syntax Directed Translation Shield and the LALR Parser Generator Sword. The dragon, massive in comparison to the small knight, has scales marked Complexity of Compiler Design.</p><p>This blog post is my attempt to put what I learned in the first few lectures of <a href="https://www.khoury.northeastern.edu/home/blerner/">Ben Lerner</a>&rsquo;s <a href="https://course.ccs.neu.edu/cs4410/">CS4410</a> course in my own words.</p><h3 id="what-is-a-compiler">What is a Compiler?</h3><p>A compiler is a program that consumes a program as input and produces another program.</p><p><code>gcc</code> is a compiler. It compiles C programs to <em>binaries</em>, which you can think of as executables.</p><pre class="brush: C"><code>// foo.c
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, world!\n");
+}</code></pre><p>You can use <code>gcc</code> to compile <code>foo.c</code> to the executable <code>foo</code>. Run the executable <code>foo</code>, and we see <code>Hello, World!</code> printed on the screen.</p><pre class="brush: shell"><code>luke@mbp ~ % gcc foo.c -o foo
+luke@mbp ~ % ./foo
+Hello, world!</code></pre><p><code>gcc</code> gives programmers the ability turn C source code into a binary executable that a computer can understand.</p><h4 id="compilers-vs-interpreters">Compilers vs. Interpreters</h4><pre class="brush: ocaml"><code>let compile (src: source_program) : target_program = ...
+let interpret (src: source_program) : value = ...</code></pre><p>I learned in <a href="https://www.plai.org/">PLAI</a> that compilers and interpreters are both <em>evaluators</em>—"An evaluator reduces programs to values".</p><p>An interpreter consumes a program and runs it. In other words, it reduces a program all the way into a value.</p><pre class="brush: py"><code># foo.py
+
+print("Hello, world!")</code></pre><pre class="brush: shell"><code>luke@mbp ~ % python foo.py
+Hello, world!</code></pre><p>We can clearly see that <code>python3 foo.py</code> takes in a program and executes the code directly, which is why we see <code>"Hello, world!"</code> printed. This is in constrast with <code>gcc</code>, which produced another program.</p><p>Consider an important difference: after a compiler has compiled a program, the compiler can be thrown away. However, throwing away an interpreter after evaluating a program would mean that program can no longer be run!</p><p>As mentioned earlier, a compiler consumes a program and produces another program. The resulting program is a <em>reduced program</em>, meaning that it&rsquo;s <em>closer</em> to the point where an interpreter can run the program.</p><h3 id="a-simple-interpreter">A Simple Interpreter</h3><p>Before designing a simple compiler, let&rsquo;s build an interpeter. The <code>expr</code> type represents the source program.</p><pre class="brush: ocaml"><code>type expr =
+  | NumE of int64
+
+type value = int64
+
+let interpret (e: expr) : value =
+  match e with
+  | (NumE n) -&gt; n</code></pre><p>To make our source program more interesting, let&rsquo;s introduce new <em>syntax</em>.</p><pre class="brush: ocaml"><code>type expr =
+  | NumE of int64
+  | Add1 of expr
+  | Sub1 of expr
+
+type value = int64
+
+let rec interpret (e: expr) : value =
+  match e with
+  | (NumE n) -&gt; n
+  | (Add1 e') -&gt; Int64.add 1L (interpret e')
+  | (Sub1 e') -&gt; Int64.sub (interpret e') 1L</code></pre><h3 id="a-simple-compiler">A Simple Compiler</h3><pre class="brush: ocaml"><code>type expr =
+  | NumE of int64
+
+type reg =
+  | RAX
+
+type arg =
+  | Reg of reg
+  | Const of int64
+
+type instruction =
+  | IMov of (arg * arg)
+
+let rec compile (e: expr) : instruction list =
+  match e with
+  | (NumE n) -&gt; [IMov(Reg(RAX), Const(n))]</code></pre></root>
+    <footer>
+      Built with <a href="https://docs.racket-lang.org/pollen/" target="_blank">Pollen</a> &
+      <a href="https://racket-lang.org/" target="_blank">Racket</a>.
+    </footer>
+  </body>
+</html>
