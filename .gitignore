@@ -10,3 +10,5 @@ src/styles.css
 # Vim
 *.swp
 
+# Include!
+!src/engw-3315-interdisciplinary-visual.html
