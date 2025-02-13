@@ -1,15 +1,6 @@
 #lang pollen
 
-<style>
-body {
-  margin: 3rem auto;
-  max-width: 700px;
-  font-size: 1.05em;
-}
-</style>
-
 ## Blog
 
 1. December 2023 - [Compilers](compilers.html)
 2. Jan 2024  - [Theory of Computation](theory-of-computation.html)
-3. Jan 2024  - [Introduction to Digital Design and Computer Architecture](introduction-to-digital-design-and-computer-architecture.html)
