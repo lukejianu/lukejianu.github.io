@@ -34,7 +34,8 @@ jobs:
           raco pollen render src/blog &&
           raco pollen publish src build &&
           raco pollen publish src/small-rust-os build/small-rust-os &&
-          raco pollen publish src/blog build/blog
+          raco pollen publish src/blog build/blog && 
+          cp src/robots.txt build.robots.txt
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
