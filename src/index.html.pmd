@@ -10,18 +10,11 @@
 ◊(define mf-site "https://felleisen.org/matthias/")
 ◊(define dbp-site "https://dbp.io/")
 ◊(define ben-site "https://www.khoury.northeastern.edu/home/blerner/")
-◊(define cameron-site "https://camoy.name/")
-◊(define michael-site "https://mballantyne.net/")
 
 ◊(define cs2500-site "https://pages.github.khoury.northeastern.edu/2500/2024F/")
 ◊(define cs2800-s24-site "https://course.ccs.neu.edu/cs2800sp24/index.html")
 ◊(define cs2800-s25-site "https://course.ccs.neu.edu/cs2800sp25/index.html")
 ◊(define cs4500-site "https://felleisen.org/matthias/4500-f24")
-◊(define hyol-site "https://mballantyne.net/hyol/")
-
-◊(define malr-site "https://rmculpepper.github.io/malr/v2")
-◊(define lsl-site "https://docs.racket-lang.org/lsl/")
-◊(define syntax-spec-docs-site "https://docs.racket-lang.org/syntax-spec-v2/index.html")
 
 ## Luke Jianu
  
@@ -31,11 +24,9 @@ Hi, I'm Luke, and I study Computer Science at Northeastern University.
 
 Currently, I'm:
 
-- TAing for [Daniel Patterson](◊dbp-site)'s [Logic & Computation](◊cs2800-s25-site) (again).
+- graduating!
 
-- taking [Michael Ballantyne](◊michael-site)'s [Hack Your Own Language](◊hyol-site).
-
-- climbing, cycling, and reading.
+- running, cycling, and reading.
 
 In the past, I've:
 
@@ -47,7 +38,7 @@ In the past, I've:
 
 - created tooling for high-speed cameras at [S3Global](◊s3-site).
 
-- TA'd for [Daniel Patterson](◊dbp-site)'s [Logic & Computation](◊cs2800-s24-site) and [Fundies I](◊cs2500-site).
+- TA'd for [Daniel Patterson](◊dbp-site)'s [Logic & Computation](◊cs2800-s25-site) ([2x](◊cs2800-s24-site)) and [Fundies I](◊cs2500-site).
 
 - TA'd for [Ben Lerner](◊ben-site) and [Matthias Felleisen](◊mf-site)'s [Fundies IV](◊cs4500-site).
 
