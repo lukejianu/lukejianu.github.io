@@ -1,14 +1,13 @@
 /* Setting the font. */
 :root {
-  --font-sans: "Charter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-family: var(--font-sans);
+  font-family: "Charis SIL", serif;
 }
 
 /* Centering the page */
 body {
   margin: 3rem auto;
   max-width: 620px;
-  font-size: 1.2em;
+  font-size: 1.15em;
 }
 
 /* Probably a better way to do this... */
