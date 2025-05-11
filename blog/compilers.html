@@ -57,6 +57,7 @@ type instruction =
 let rec compile (e: expr) : instruction list =
   match e with
   | (NumE n) -&gt; [IMov(Reg(RAX), Const(n))]</code></pre></root>
+    <hr>
     <footer>
       Built with <a href="https://docs.racket-lang.org/pollen/" target="_blank">Pollen</a> &
       <a href="https://racket-lang.org/" target="_blank">Racket</a>.
