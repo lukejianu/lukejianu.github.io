@@ -16,6 +16,7 @@ body {
 @media screen and (max-width: 620px) {
   body {
     max-width: 95%;
+    font-size: 1.00em;
   }
 }
 
