@@ -7,12 +7,12 @@
 /* Centering the page */
 body {
   margin: 3rem auto;
-  max-width: 550px;
-  font-size: 1.05em;
+  max-width: 620px;
+  font-size: 1.2em;
 }
 
 /* Probably a better way to do this... */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 620px) {
   body {
     max-width: 95%;
   }
