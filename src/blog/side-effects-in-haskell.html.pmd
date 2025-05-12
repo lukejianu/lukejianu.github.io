@@ -1,0 +1,74 @@
+#lang pollen
+
+## Side Effects in Haskell
+
+### Side Effects & Interactive Programs
+
+In math, a function accepts an input and produces an output. In programming, a
+function can additionally perform a *side effect*.
+
+```C
+int foo(int x) {
+  char c = getchar();
+  return x + 1; 
+}
+```
+
+We call this a side effect because the main purpose of a function is to produce
+an output—prompting the user for input is an effect that happens "on the side".
+
+Without side effects, we are limited to *batch programs*. A batch program
+behaves like a math function—accepting an input, computing, and producing an
+output. It is like a black box in the sense that it cannot interact/communicate
+with the outside world while it is computing. Its only form of interaction is
+accepting the input "in a batch" and producing an output "in a batch" (hence the
+name). An example of a batch program is a compiler, which accepts a program and
+produces a program.
+
+*Interactive programs* are more common today. Consider the browser program,
+which in some sense accepts no inputs and produces no outputs. Instead, it
+performs all kinds of side effects—reading keyboard and mouse input from the
+user, sending and receiving messages over the network, and displaying results on
+a screen.
+
+### State of the World
+
+In Haskell, functions behave like they do in math. Despite this, Haskell
+functions can still perform side effects. Recall the earlier definition of a
+side effect: an effect the function performs outside of producing the output.
+Well, what if we make the output of a side effect performing function **really
+big**, so that there exists nothing "outside of performing the output". In
+Haskell, we call this output "the state of the world", represented by the type
+`World`. Conceptually, you can think of this as a piece of data that represents 
+the exact state of the universe at a particular instance in time.
+
+As a first attempt, we can imagine that our `foo` function from above would
+have the signature `Int -> (Int, World)`. It accepts an integer `x` and produces
+`x + 1` and some new `World` that captures the fact that the computer running
+the program is now waiting to read a character.
+
+The problem with this first attempt is that we don't really want to create a new
+`World` from scratch. Instead, we just want to make a slight modification
+to the "current" `World`. Now, we could modify `foo` to accept the current
+`World` like so: `World -> Int -> (Int, World)`. This could work, but it's not
+ergonomic.  This design would force programmers to pass the `World` around in
+their programs.
+
+The approach Haskell takes is `Int -> World -> (Int, World)`. That is, the `foo`
+function produces a function `World -> (Int, World)` that describes how the
+world changes. More generally, a function that performs a side effect always
+outputs `World -> (a, World)` for some type `a`. We give this side effect output
+type a name: `IO`.
+
+```haskell
+type IO a = World -> (a, World)
+```
+
+Putting everything together, `foo` has the signature `Int -> IO Int`.
+
+### Review
+
+It's worth taking some time to review what we just did here. We showed that you
+can have interactive programs without functions that perform side effects.
+Importantly, we've made side effects very explicit by encoding them into the
+type system.
