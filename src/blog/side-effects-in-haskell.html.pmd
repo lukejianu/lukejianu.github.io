@@ -37,7 +37,7 @@ In Haskell, functions behave like they do in math. Despite this, Haskell
 functions can still perform side effects. Recall the earlier definition of a
 side effect: an effect the function performs outside of producing the output.
 Well, what if we make the output of a side effect performing function **really
-big**, so that there exists nothing "outside of performing the output". In
+big**, so that there exists nothing "outside of performing the output"?. In
 Haskell, we call this output "the state of the world", represented by the type
 `World`. Conceptually, you can think of this as a piece of data that represents 
 the exact state of the universe at a particular instance in time.
@@ -68,7 +68,20 @@ Putting everything together, `foo` has the signature `Int -> IO Int`.
 
 ### Review
 
-It's worth taking some time to review what we just did here. We showed that you
-can have interactive programs without functions that perform side effects.
-Importantly, we've made side effects very explicit by encoding them into the
-type system.
+◊(define discourse-link "https://discourse.haskell.org/t/should-haskell-be-rebranded-away-from-pure-functional-programming/4850")
+
+It's worth taking some time to review what we just did here. We said that
+Haskell functions can perform side effects but then showed that they aren't side
+effects because of the `IO` type. So, which one is it?
+
+I think the problem here is that terms like "side effect" and "pure" have
+different meanings. Others have discussed this same "contradiction" on the
+Haskell forums: [Should Haskell be rebranded away from "Pure Functional
+Programming"](◊discourse-link).
+
+A clearer way of phrasing the key takeaway is that Haskell supports interactive
+programming and encodes actions that we consider side effects in other languages
+inside the `IO` type. The explicit distinction between functions that produce
+`IO` values and functions that don't makes it easier to reason about code for
+humans and for the compiler, which makes Haskell a pleasant and efficient
+language to program in.
