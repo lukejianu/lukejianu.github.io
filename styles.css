@@ -6,10 +6,10 @@
 /* Centering the page */
 body {
   margin: 3rem auto;
-  max-width: 620px;
+  max-width: 530px;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 530px) {
   body {
     max-width: 95%;
   }
