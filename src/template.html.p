@@ -17,6 +17,7 @@
   </head>
   <body>
     ◊(->html doc)
+    <hr/>
     <footer>
       Built with <a href="◊|pollen-site|" target="_blank">Pollen</a> & 
       <a href="◊|racket-site|" target="_blank">Racket</a>. 

@@ -2,6 +2,12 @@
 ◊(define blerner-site "https://www.khoury.northeastern.edu/home/blerner/")
 ◊(define cs4410-site "https://course.ccs.neu.edu/cs4410/")
 
+<style>
+body {
+  max-width: 620px; 
+}
+</style>
+
 ## Compilers
 
 > "Compilers are perceived to be magical artifacts, carefully crafted

@@ -1,5 +1,12 @@
 #lang pollen
 
+
+<style>
+body {
+  max-width: 620px; 
+}
+</style>
+
 ## Side Effects in Haskell
 
 ### Side Effects & Interactive Programs
