@@ -5,7 +5,7 @@
 ## Compilers
 
 > "Compilers are perceived to be magical artifacts, carefully crafted
-> by the wizards, and unfathomable by the mere mortals."—[Abdulaziz Ghuloum](http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf)
+> by the wizards, and unfathomable by the mere mortals." - [Abdulaziz Ghuloum](http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf)
 
 One of the famous books on compilers is known as "The Dragon Book". The cover features a brave knight, wielding mighty tools:
 the Syntax Directed Translation Shield and the LALR Parser Generator Sword. The dragon, massive in comparison to the small knight,

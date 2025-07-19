@@ -32,6 +32,7 @@ a:hover {
 
 blockquote {
   background: #f4f4eb;
+  max-width: 450px; 
 }
 
 footer {
