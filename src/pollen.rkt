@@ -1,4 +1,5 @@
 #lang racket
+
 (require pollen/template)
 
 (provide insert-blog-css)
