@@ -1,11 +1,6 @@
 #lang pollen
 
-
-<style>
-body {
-  max-width: 620px; 
-}
-</style>
+◊(insert-blog-css)
 
 ## Side Effects in Haskell
 
