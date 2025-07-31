@@ -1,0 +1,99 @@
+#lang pollen
+
+◊(insert-blog-css)
+
+## Ethereum: The Decentralized Computer (Draft)
+
+> I happily played World of Warcraft during 2007-2010, but one day Blizzard
+> removed the damage component from my beloved warlock’s Siphon Life spell. I
+> cried myself to sleep, and on that day I realized what horrors centralized
+> services can bring. I soon decided to quit. - Vitalik Buterin
+
+### Bitcoin
+
+#### The Idea
+Bitcoin is a ledger: an ordered list of transactions.
+
+```
+Ledger
+
+1. Alice sent Bob 2 coins    - Signed by Alice.
+2. Bob sent Charlie 4 coins  - Signed by Bob.
+3. Charlie sent Alice 1 coin - Signed by Charlie.
+```
+
+The ledger represents the balances of each person, which one can easily compute
+by iterating over the transactions and tracking the movement of coins. Of
+course, in the example above, Alice and Bob end up with negative balances
+(debt), which we probably don't want to allow. We'll return to this later.  An
+interesting observation here is that this ledger is its own *currency*.  That
+is, if everyone used this same ledger, we wouldn't need dollars anymore.
+
+Bitcoin's important property is that it is a *decentralized ledger*, which
+means that the ledger is not controlled or managed by a particular entity.
+This immediately raises questions. Who keeps track of the state of the ledger?
+Who decides how the ledger is updated?
+
+In order for this ledger to be useful, there needs to be consensus on its
+state. Without a single source of truth, how could a seller trust that the
+buyer's transaction is set in stone? 
+
+Governments use voting to reach consensus on policy. Could we have everyone
+vote on what the state of the ledger should be? The proposed ledger with the
+most votes becomes the new ledger. This seems decentralized—anyone is allowed
+to propose a new ledger and vote, which means that no entity controls the
+ledger.  It's the majority that controls the ledger, which is exactly what we
+want.
+
+Recall, however, that an important part of voting is identity verification:
+every person is only allowed to vote once. Our voting system is vulnerable to
+Sybil attacks, in which an attacker creates many identities to gain more
+influence in the vote. A minority of bad actors could overwhelm the majority,
+and we lose the decentralized property.
+
+Bitcoin uses a very clever voting mechanism. Your voting power increases based
+on your computing power. This way, the only way for an entity to control the
+ledger is to own the majority of compute, which would be extremely expensive.
+The way it works is that all members are always racing to solve a
+computationally difficult math puzzle. The members with more compute are more
+likely to solve the puzzle. When a member solves it, they gain the right to
+propose a new ledger. The ledger contains a stamp with the solution they found,
+so that others can quickly verify that they solved the puzzle. This stamp
+is known as the *proof of work*.
+
+Of course, the new proposed ledger must be valid. It should only add
+transactions and those transactions should have valid digital signatures. The
+proposed ledger should also not represent any negative balances—you can't spend
+what you don't have. Even with a valid proof of work, the other members will
+ignore the proposed ledger if it isn't valid.
+
+The proposer expended resources in the form of computation to solve the puzzle.
+This is an important job that needs to be performed in order to keep the ledger
+growing (and running). Thus, the proposer is rewarded for solving the puzzle.
+They reward themselves by adding a transaction to the proposed ledger granting
+themselves a few coins. This is how new tokens are created (think back to how
+this solves the negative balance problem in the example ledger above).
+
+A more general way to think about Bitcoin is as a decentralized database. The
+nodes in the network agree on the state and exchange messages expressing how
+they would like the state to change or transition. In Bitcoin's case, the state
+is a mapping from ID to balance, and the transitions are transactions.
+
+Namecoin is an implementation of decentralized DNS inspired by Bitcoin. The
+state is a mapping from ID to (name, address) and the transitions are claims to
+certain domain names, updates to domain names, etc.
+
+#### The Implementation
+
+### Ethereum
+
+#### The Idea
+3. Introduce Ethereum, whose state has the ledger, code, and memory (like a computer).
+Explain the state and state transitions. This effectively makes it a general
+purpose blockchain. There are many applications that run on the Ethereum
+blockchain. This is what people mean when they say web 3.0.
+
+#### The Implementation
+
+#### Aside: Proof of Stake
+
