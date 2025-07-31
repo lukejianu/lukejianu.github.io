@@ -70,23 +70,24 @@ propose a new ledger. The ledger contains a stamp with the solution they found,
 so that others can quickly verify that they solved the puzzle. This stamp
 is known as the *proof of work*.
 
-Of course, the new proposed ledger must be valid. It should only add
-transactions and those transactions should have valid digital signatures. The
-proposed ledger should also not represent any negative balances—you can't spend
-what you don't have. Even with a valid proof of work, the other members will
-ignore the proposed ledger if it isn't valid.
+Of course, the new proposed ledger must be valid. It should only add new
+transactions to the ledger (as opposed to changing or removing old
+transactions), and they should all have valid digital signatures. The proposed
+ledger should also not represent any negative balances—you can't spend what you
+don't have. Even with a valid proof of work, the other members will ignore the
+proposed ledger if it isn't valid.
 
 The proposer expended resources in the form of computation to solve the puzzle.
 This is an important job that needs to be performed in order to keep the ledger
-growing (and running). Thus, the proposer is rewarded for solving the puzzle.
+secure and growing. Thus, the proposer is rewarded for solving the puzzle.
 They reward themselves by adding a transaction to the proposed ledger granting
-themselves a few coins. This is how new tokens are created (think back to how
-this solves the negative balance problem in the example ledger above).
+themselves a few coins. This is how new coins are created (think back to how
+this solves the negative balance problem mentioned before).
 
 A more general way to think about Bitcoin is as a decentralized database. The
-nodes in the network agree on the state and exchange messages expressing how
-they would like the state to change or transition. In Bitcoin's case, the state
-is a mapping from ID to balance, and the transitions are transactions.
+members agree on the state and exchange messages expressing how they would like
+the state to change or transition. In Bitcoin's case, the state is a mapping
+from ID to balance, and the transitions are transactions.
 
 Namecoin is an implementation of decentralized DNS inspired by Bitcoin. The
 state is a mapping from ID to (name, address) and the transitions are claims to
@@ -99,25 +100,26 @@ transactions it wants to make to the rest of the network. A miner collects
 transactions and proposes a new ledger whenever it solves a puzzle.
 
 The ledger is represented as a chain of blocks (blockchain). A block contains a
-reference (hash) to the previous block, a list of transactions, and a nonce
+reference (hash) to the previous block, a list of transactions, and a number
 representing the proof of work. The math puzzle the miner is solving is simply
-incrementing the nonce until the hash of the entire block starts with N number
-of zeroes. Once it finds the nonce, it broadcasts the block across the network.
+searching for a number such that the hash of the entire block starts with N of
+zeroes. Once it finds the valid number, it broadcasts the block across the
+network.
 
 It's possible for the blockchain to branch. That is, two different, valid
 blocks are broadcast across the network, where both blocks point to the same
 parent. This doesn't necessarily indicate malicious behavior—both miners might
-have discovered a valid nonce at the same time. What should the other nodes do?
+have solved puzzles at the same time. What should the other nodes do?
 Which chain should the miners work on (which hash should their new block point
 to)? Which chain should standard nodes rely on as the truth? 
 
 The miners, if they are smart, will work on the chain that is longer. This is
 because the longer chain is more likely to have more miners working on it.
-It's important to understand that miners don't receive a reward for finding a
-valid nonce—they only receive the rewards if their block becomes part of the
-chain that everyone else agrees is valid. Thus, the miners are also incentivized
-to publish valid blocks, since the other nodes will only accept the block
-if it represents a valid ledger transition.
+It's important to understand that miners don't receive a reward for solving the
+puzzle or even broadcasting a valid block—they only receive the rewards if
+their block becomes part of the chain that everyone else agrees is valid. Thus,
+the miners are also incentivized to publish valid blocks, since the other nodes
+will only accept the block if it represents a valid ledger transition.
 
 Similarly, the standard nodes should also rely on the longer chain, because the
 majority of compute is likely working on that chain. On the Bitcoin network, it
