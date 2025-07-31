@@ -128,8 +128,43 @@ blocks before treating it as the source of truth.
 ### Ethereum
 
 #### The Idea
+Ethereum is a general-purpose blockchain. That is, you can implement Bitcoin
+and Namecoin, or any other application that acts like a decentralized database
+on top of Ethereum. 
+
+Let's start by understanding Ethereum's state and transitions. Since Ethereum
+has its own currency called Ether, its state and transitions are a superset of
+Bitcoin's. That is, its state has a mapping from ID to balance and there are
+transactions that allow nodes to transfer Ether.
+
+The genius of Ethereum is how it achieves its generality: storing entire
+applications inside the state and allowing nodes to send transactions to
+applications to interact with them.
+
+Firstly, how do you store an application on the blockchain? Simply store its
+code and its current internal state (whatever it needs to remember in between
+calls). A node can send a transaction containing an arbitrary message to an
+application and the application decides how to update its internal state in
+response. Ethereum refers to these applications as *smart contracts*.
+
+Consider a counter application. We would first create the contract by
+broadcasting a transaction with its code and internal state. The counter's
+internal state starts at 0, and the code ignores the given message and always
+increments its internal state by 1. The transaction becomes part of the
+blockchain the same way Bitcoin transations did (via mining). When a node
+broadcasts a transaction targeting the contract's ID, a miner picks up that
+transaction, and updates the blockchain state by running the code. Now, the
+blockchain stores an updated version of the counter, with its count incremented
+by 1.
 
 #### The Implementation
 
 #### Aside: Proof of Stake
+Proof of Stake is an alternative consensus mechanism. In Proof of Work, a
+node's voting power increases based on their computing power. In Proof of
+Stake, a node's voting power increases based on the amount of Ether they own.
+In both systems, acquiring voting power requires expending resources, making it
+difficult for one entity to acquire a majority. In addition, there are clever
+mechanisms leveraging smart contracts that automatically destroy the Ether of
+nodes who break the rules.
 
