@@ -93,14 +93,41 @@ state is a mapping from ID to (name, address) and the transitions are claims to
 certain domain names, updates to domain names, etc.
 
 #### The Implementation
+Technically, Bitcoin is a P2P network. There are two kinds of nodes: standard
+nodes and miners. A standard node keeps track of the ledger and broadcasts
+transactions it wants to make to the rest of the network. A miner collects
+transactions and proposes a new ledger whenever it solves a puzzle.
+
+The ledger is represented as a chain of blocks (blockchain). A block contains a
+reference (hash) to the previous block, a list of transactions, and a nonce
+representing the proof of work. The math puzzle the miner is solving is simply
+incrementing the nonce until the hash of the entire block starts with N number
+of zeroes. Once it finds the nonce, it broadcasts the block across the network.
+
+It's possible for the blockchain to branch. That is, two different, valid
+blocks are broadcast across the network, where both blocks point to the same
+parent. This doesn't necessarily indicate malicious behavior—both miners might
+have discovered a valid nonce at the same time. What should the other nodes do?
+Which chain should the miners work on (which hash should their new block point
+to)? Which chain should standard nodes rely on as the truth? 
+
+The miners, if they are smart, will work on the chain that is longer. This is
+because the longer chain is more likely to have more miners working on it.
+It's important to understand that miners don't receive a reward for finding a
+valid nonce—they only receive the rewards if their block becomes part of the
+chain that everyone else agrees is valid. Thus, the miners are also incentivized
+to publish valid blocks, since the other nodes will only accept the block
+if it represents a valid ledger transition.
+
+Similarly, the standard nodes should also rely on the longer chain, because the
+majority of compute is likely working on that chain. On the Bitcoin network, it
+is very difficult for any one entity to create 7 blocks in a row. Thus,
+standard nodes wait until their relevant transaction is buried in at least 7
+blocks before treating it as the source of truth.
 
 ### Ethereum
 
 #### The Idea
-3. Introduce Ethereum, whose state has the ledger, code, and memory (like a computer).
-Explain the state and state transitions. This effectively makes it a general
-purpose blockchain. There are many applications that run on the Ethereum
-blockchain. This is what people mean when they say web 3.0.
 
 #### The Implementation
 
