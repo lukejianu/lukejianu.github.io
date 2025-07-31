@@ -157,6 +157,14 @@ transaction, and updates the blockchain state by running the code. Now, the
 blockchain stores an updated version of the counter, with its count incremented
 by 1.
 
+Just like in Bitcoin, all nodes are required to check the validity of blocks
+for themselves. Since the state can transform in arbitrary ways based on the
+contract's code, all nodes must run the contract for themselves to determine
+the new state of the chain.
+
+Ethereum is a *decentralized computer*. Users create applications and can run
+them on the Ethereum computer, taking advantage of its decentralization.
+
 #### The Implementation
 
 #### Aside: Proof of Stake
