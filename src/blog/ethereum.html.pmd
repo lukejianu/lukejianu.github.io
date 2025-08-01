@@ -147,20 +147,28 @@ The genius of Ethereum is how it achieves its generality: storing entire
 applications inside the state and allowing nodes to send transactions to
 applications to interact with them.
 
-Firstly, how do you store an application on the blockchain? Simply store its
-code and its current internal state (whatever it needs to remember in between
-calls). A node can send a transaction containing an arbitrary message to an
-application and the application decides how to update its internal state in
-response. Ethereum refers to these applications as *smart contracts*.
+Firstly, how do you store an application on the blockchain? Simply store the
+application's code and its current internal state (whatever it needs to
+remember in between calls). For example, we could store Twitter on the
+blockchain. Twitter's internal state is all the tweets/profiles. The code is
+Twitter's codebase, which defines what it means to make a new tweet or like a
+post (i.e., how the state should change).
+
+A node can then send a transaction to an application containing an arbitrary
+message describing its request. In response, the application updates its
+internal state. Ethereum refers to these applications as *smart contracts*.
 
 Consider a counter application. We first create the contract by broadcasting a
 transaction with its code and initial internal state. The counter's internal
-state starts at 0 and increments its internal state by 1 in response to a
-message. The transaction becomes part of the blockchain the same way Bitcoin
-transations did (via mining). When a node broadcasts a transaction targeting
-the contract's ID, a miner picks up that transaction, and updates the
-blockchain state by running the code. Now, the blockchain stores an updated
-version of the counter, with its count incremented by 1.
+state starts at 0. The code describes the behavior—increment the state by 1 in
+response to a message. The contract is added to the blockchain when a miner
+includes the transaction in a block, effectively updating the state to include
+this new application.
+
+When a node broadcasts a transaction targeting the counter contract, a miner
+picks up that transaction, and updates the blockchain state by running the
+contract's code. Now, the blockchain stores an updated version of the counter,
+with its count (state) incremented by 1.
 
 Just like in Bitcoin, all nodes are required to check the validity of blocks
 for themselves. Since the state can transform in arbitrary ways based on the
@@ -170,21 +178,18 @@ the new state of the chain.
 Ethereum is a *decentralized computer*. Users create applications and can run
 them on the Ethereum computer, taking advantage of its decentralization.
 
-#### The Implementation
-
 #### Aside: Proof of Stake
 Proof of Stake is an alternative consensus mechanism. In Proof of Work, a
 node's voting power increases based on their computing power. In Proof of
-Stake, a node's voting power increases based on the amount of Ether they own.
-In both systems, acquiring voting power requires expending resources, making it
-difficult for one entity to acquire a majority. In addition, there are clever
-mechanisms leveraging smart contracts that automatically destroy the Ether of
-nodes who break the rules.
+Stake, a node's voting power increases based on the amount of Ether they own
+(their "stake").  In both systems, acquiring voting power requires expending
+resources, making it difficult for one entity to acquire a majority. In
+addition, there are clever mechanisms leveraging smart contracts that
+automatically destroy the Ether of nodes who break the rules.
 
 In 2022, Ethereum switched from PoW to PoS, reducing the chain's energy usage
 by over 99%. In Ethereum PoS, nodes sign up to become validators by locking
-(staking) at least 32 ETH in a special smart contract. Every 12 seconds,
-validators randomly agree on a random seed. The random seed is used to randomly
-chose 1 validator to propose the new block—validators with more ETH staked have
-a higher chance of being chosen.
+(staking) at least 32 ETH in a special smart contract. Every 12 seconds, a
+validator is randomly chosen to propose the new block—validators with more ETH
+staked have a higher chance of being chosen.
 
