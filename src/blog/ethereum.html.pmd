@@ -178,3 +178,10 @@ difficult for one entity to acquire a majority. In addition, there are clever
 mechanisms leveraging smart contracts that automatically destroy the Ether of
 nodes who break the rules.
 
+In 2022, Ethereum switched from PoW to PoS, reducing the chain's energy usage
+by over 99%. In Ethereum PoS, nodes sign up to become validators by locking
+(staking) at least 32 ETH in a special smart contract. Every 12 seconds,
+validators randomly agree on a random seed. The random seed is used to randomly
+chose 1 validator to propose the new block—validators with more ETH staked have
+a higher chance of being chosen.
+
