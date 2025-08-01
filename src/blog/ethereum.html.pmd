@@ -106,9 +106,9 @@ transactions and proposes a new ledger whenever it solves a puzzle.
 The ledger is represented as a chain of blocks (blockchain). A block contains a
 reference (hash) to the previous block, a list of transactions, and a number
 representing the proof of work. The math puzzle the miner is solving is simply
-searching for a number such that the hash of the entire block starts with N of
-zeroes. Once it finds the valid number, it broadcasts the block across the
-network.
+searching for a number such that the hash of the entire block is smaller than a
+certain difficulty target. Once it finds the valid number, it broadcasts the
+block across the network.
 
 It's possible for the blockchain to branch. That is, two different, valid
 blocks are broadcast across the network, where both blocks point to the same
