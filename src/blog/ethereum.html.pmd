@@ -84,14 +84,18 @@ They reward themselves by adding a transaction to the proposed ledger granting
 themselves a few coins. This is how new coins are created (think back to how
 this solves the negative balance problem mentioned before).
 
-A more general way to think about Bitcoin is as a decentralized database. The
-members agree on the state and exchange messages expressing how they would like
-the state to change or transition. In Bitcoin's case, the state is a mapping
-from ID to balance, and the transitions are transactions.
+Another way to think about Bitcoin is as a decentralized database. The
+database stores the balances of each member and supports operations to update
+the balances (transactions). It's decentralized because anyone can read and/or
+update the database according to the rules—there is no single entity that
+controls it.
 
-Namecoin is an implementation of decentralized DNS inspired by Bitcoin. The
-state is a mapping from ID to (name, address) and the transitions are claims to
-certain domain names, updates to domain names, etc.
+More generally, a decentralized database tracks some state and allows certain
+state transitions. The Bitcoin currency is one application of the decentralized
+database technology. Namecoin is another: it's an implementation of
+decentralized DNS inspired by Bitcoin. Namecoin's state is a map from domain to
+IP address. Members exchange messages expressing how they would like the state
+to transition (create new domain, update old domain, etc.).
 
 #### The Implementation
 Technically, Bitcoin is a P2P network. There are two kinds of nodes: standard
@@ -149,15 +153,14 @@ calls). A node can send a transaction containing an arbitrary message to an
 application and the application decides how to update its internal state in
 response. Ethereum refers to these applications as *smart contracts*.
 
-Consider a counter application. We would first create the contract by
-broadcasting a transaction with its code and internal state. The counter's
-internal state starts at 0, and the code ignores the given message and always
-increments its internal state by 1. The transaction becomes part of the
-blockchain the same way Bitcoin transations did (via mining). When a node
-broadcasts a transaction targeting the contract's ID, a miner picks up that
-transaction, and updates the blockchain state by running the code. Now, the
-blockchain stores an updated version of the counter, with its count incremented
-by 1.
+Consider a counter application. We first create the contract by broadcasting a
+transaction with its code and initial internal state. The counter's internal
+state starts at 0 and increments its internal state by 1 in response to a
+message. The transaction becomes part of the blockchain the same way Bitcoin
+transations did (via mining). When a node broadcasts a transaction targeting
+the contract's ID, a miner picks up that transaction, and updates the
+blockchain state by running the code. Now, the blockchain stores an updated
+version of the counter, with its count incremented by 1.
 
 Just like in Bitcoin, all nodes are required to check the validity of blocks
 for themselves. Since the state can transform in arbitrary ways based on the
