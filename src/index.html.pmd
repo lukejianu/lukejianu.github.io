@@ -6,6 +6,7 @@
 ◊(define bt-site "https://www.belvederetrading.com/")
 ◊(define db-site "https://www.databricks.com/")
 ◊(define pltr-site "https://www.palantir.com/")
+◊(define rubix-site "https://www.palantir.com/rubix/")
 
 ◊(define mf-site "https://felleisen.org/matthias/")
 ◊(define dbp-site "https://dbp.io/")
@@ -20,7 +21,7 @@
  
 > "Code is written for others to understand the developer's thoughts, and it accidentally runs on computers."
 
-Hi, I'm Luke, and I work on software at [Palantir](◊pltr-site).
+Hi, I'm Luke, and I work on [Kubernetes](◊rubix-site) at [Palantir](◊pltr-site).
 
 In the past, I've:
 
