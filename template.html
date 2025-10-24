@@ -2,7 +2,7 @@
 ◊(define pollen-site "https://docs.racket-lang.org/pollen/")
 ◊(define racket-site "https://racket-lang.org/")
 ◊(define my-site "https://lukejianu.github.io/")
-◊(define canonical (string-append my-site (symbol->string here)))
+◊(define canonical (string-append my-site (select-from-metas 'here-path metas)))
 
 <html>
   <head>
