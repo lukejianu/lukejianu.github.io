@@ -1,8 +1,7 @@
 ◊(define my-name "Luke Jianu")
 ◊(define pollen-site "https://docs.racket-lang.org/pollen/")
 ◊(define racket-site "https://racket-lang.org/")
-◊(define my-site "https://lukejianu.github.io/")
-◊(define canonical (string-append my-site (symbol->string here)))
+◊(define canonical-url (mk-canonical-url (select-from-metas 'here-path metas)))
 
 <html>
   <head>
@@ -12,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="canonical" href="◊|canonical|" />
+    <link rel="canonical" href="◊|canonical-url|" />
     <title>◊|my-name|</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="stylesheet" href="/highlight/styles/default.css">
