@@ -1,8 +1,18 @@
 #lang racket
 
 (require pollen/template)
+(require sugar)
 
-(provide insert-blog-css)
+(provide mk-canonical-url insert-blog-css)
+
+(define my-site "https://lukejianu.github.io/")
+
+(define (mk-canonical-url here-path)
+  (string-append my-site (mk-relative-to-src (path->string (remove-ext* here-path)))))
+
+(define (mk-relative-to-src path)
+  (define parts (string-split path "src/"))
+  (last parts))
 
 (define (insert-blog-css)
   (define width-px 620)
