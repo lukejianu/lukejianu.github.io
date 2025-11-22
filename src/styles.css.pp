@@ -21,13 +21,8 @@ h2 {
   font-size: 1.75em;
 }
 
-a {
-  color: black;
-}
-
 a:hover {
-  color: grey;
-  text-decoration: wavy underline
+  background-color: #f0f0f0;
 }
 
 blockquote {
