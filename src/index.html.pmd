@@ -1,16 +1,9 @@
 #lang pollen
  
-◊(define s3-site "https://www.s3global.com/science-eng.html")
-◊(define cdm-site "https://www.allthingsdistributed.com/2021/07/amazon-robotics-on-aws.html")
 ◊(define ar-site "https://www.aboutamazon.com/news/tag/robotics")
 ◊(define bt-site "https://www.belvederetrading.com/")
 ◊(define db-site "https://www.databricks.com/")
 ◊(define pltr-site "https://www.palantir.com/")
-◊(define rubix-site "https://www.palantir.com/rubix/")
-
-◊(define mf-site "https://felleisen.org/matthias/")
-◊(define dbp-site "https://dbp.io/")
-◊(define ben-site "https://www.khoury.northeastern.edu/home/blerner/")
 
 ◊(define cs2500-site "https://pages.github.khoury.northeastern.edu/2500/2024F/")
 ◊(define cs2800-s24-site "https://course.ccs.neu.edu/cs2800sp24/index.html")
@@ -25,11 +18,7 @@ Hi, I'm Luke, and I work on Kubernetes at [Palantir](◊pltr-site).
 
 In the past, I've:
 
-- load tested a distributed OLTP database at [Databricks](◊db-site).
-
-- built a TCP stream proxy at [Belvedere Trading](◊bt-site).
-
-- improved [Comprehensive Device Management](◊cdm-site) at [Amazon Robotics](◊ar-site).
+- interned at [Databricks](◊db-site), [Belvedere Trading](◊bt-site), and [Amazon Robotics](◊ar-site).
 
 - TA'd a bunch of great classes: [CS2500](◊cs2500-site), [CS2800](◊cs2800-s25-site) ([2x](◊cs2800-s24-site)), [CS4500](◊cs4500-site).
 
