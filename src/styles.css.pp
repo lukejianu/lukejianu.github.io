@@ -13,7 +13,7 @@ body {
 
 @media screen and (max-width: 530px) {
   body {
-    max-width: 95%;
+    max-width: 97%;
   }
 }
 
