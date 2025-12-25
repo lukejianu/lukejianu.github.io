@@ -14,8 +14,8 @@
     <link rel="canonical" href="◊|canonical-url|" />
     <title>◊|my-name|</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
-    <link rel="stylesheet" href="/highlight/styles/default.css">
-    <script src="/highlight/highlight.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
   </head>
   <body>
