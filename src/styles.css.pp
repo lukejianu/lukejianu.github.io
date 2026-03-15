@@ -1,19 +1,21 @@
 #lang pollen
 
-/* Setting the font. */ 
+/* Setting the font. */
 :root {
   font-family: "Charis SIL", serif;
+  font-size: 1.1em;
 }
 
 /* Centering the page */
 body {
   margin: 3rem auto;
-  max-width: 530px; 
+  max-width: 570px;
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 570px) {
   body {
-    max-width: 97%;
+    max-width: 95%;
+    font-size: 0.85em;
   }
 }
 
@@ -27,7 +29,7 @@ a:hover {
 
 blockquote {
   background: #f4f4eb;
-  max-width: 450px; 
+  max-width: 450px;
 }
 
 footer {
