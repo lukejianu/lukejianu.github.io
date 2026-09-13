@@ -1,0 +1,184 @@
+## Ethereum: The Decentralized Computer
+
+> "I happily played World of Warcraft during 2007-2010, but one day Blizzard
+> removed the damage component from my beloved warlock’s Siphon Life spell. I
+> cried myself to sleep, and on that day I realized what horrors centralized
+> services can bring. I soon decided to quit."
+>
+> *Vitalik Buterin*
+
+### Bitcoin
+
+#### The Idea
+Bitcoin is a ledger: an ordered list of transactions.
+
+```
+Ledger
+
+1. Alice sent Bob 2 coins    - Signed by Alice.
+2. Bob sent Charlie 4 coins  - Signed by Bob.
+3. Charlie sent Alice 1 coin - Signed by Charlie.
+```
+
+The ledger represents the balances of each person, which one can easily compute
+by iterating over the transactions and tracking the movement of coins. Of
+course, in the example above, Alice and Bob end up with negative balances
+(debt), which we probably don't want to allow. We'll return to this later.  An
+interesting observation here is that this ledger is its own *currency*.  That
+is, if everyone used this same ledger, we wouldn't need dollars anymore.
+
+Bitcoin's important property is that it is a *decentralized ledger*, which
+means that the ledger is not controlled or managed by a particular entity.
+This immediately raises questions. Who keeps track of the state of the ledger?
+Who decides how the ledger is updated?
+
+In order for this ledger to be useful, there needs to be consensus on its
+state. Without a single source of truth, how could a seller trust that the
+buyer's transaction is set in stone? 
+
+Governments use voting to reach consensus on policy. Could we have everyone
+vote on what the state of the ledger should be? The proposed ledger with the
+most votes becomes the new ledger. This seems decentralized—anyone is allowed
+to propose a new ledger and vote, which means that no entity controls the
+ledger.  It's the majority that controls the ledger, which is exactly what we
+want.
+
+Recall, however, that an important part of voting is identity verification:
+every person is only allowed to vote once. Our voting system is vulnerable to
+Sybil attacks, in which an attacker creates many identities to gain more
+influence in the vote. A minority of bad actors could overwhelm the majority,
+and we lose the decentralized property.
+
+Bitcoin uses a very clever voting mechanism. Your voting power increases based
+on your computing power. This way, the only way for an entity to control the
+ledger is to own the majority of compute, which would be extremely expensive.
+The way it works is that all members are always racing to solve a
+computationally difficult math puzzle. The members with more compute are more
+likely to solve the puzzle. When a member solves it, they gain the right to
+propose a new ledger. The ledger contains a stamp with the solution they found,
+so that others can quickly verify that they solved the puzzle. This stamp
+is known as the *proof of work*.
+
+Of course, the new proposed ledger must be valid. It should only add new
+transactions to the ledger (as opposed to changing or removing old
+transactions), and they should all have valid digital signatures. The proposed
+ledger should also not represent any negative balances—you can't spend what you
+don't have. Even with a valid proof of work, the other members will ignore the
+proposed ledger if it isn't valid.
+
+The proposer expended resources in the form of computation to solve the puzzle.
+This is an important job that needs to be performed in order to keep the ledger
+secure and growing. Thus, the proposer is rewarded for solving the puzzle.
+They reward themselves by adding a transaction to the proposed ledger granting
+themselves a few coins. This is how new coins are created (think back to how
+this solves the negative balance problem mentioned before).
+
+Another way to think about Bitcoin is as a decentralized database. The
+database stores the balances of each member and supports operations to update
+the balances (transactions). It's decentralized because anyone can read and/or
+update the database according to the rules—there is no single entity that
+controls it.
+
+More generally, a decentralized database tracks some state and allows certain
+state transitions. The Bitcoin currency is one application of the decentralized
+database technology. Namecoin is another: it's an implementation of
+decentralized DNS inspired by Bitcoin. Namecoin's state is a map from domain to
+IP address. Members exchange messages expressing how they would like the state
+to transition (create new domain, update old domain, etc.).
+
+#### The Implementation
+Technically, Bitcoin is a P2P network. There are two kinds of nodes: standard
+nodes and miners. A standard node keeps track of the ledger and broadcasts
+transactions it wants to make to the rest of the network. A miner collects
+transactions and proposes a new ledger whenever it solves a puzzle.
+
+The ledger is represented as a chain of blocks (blockchain). A block contains a
+reference (hash) to the previous block, a list of transactions, and a number
+representing the proof of work. The math puzzle the miner is solving is simply
+searching for a number such that the hash of the entire block is smaller than a
+certain difficulty target. Once it finds the valid number, it broadcasts the
+block across the network.
+
+It's possible for the blockchain to branch. That is, two different, valid
+blocks are broadcast across the network, where both blocks point to the same
+parent. This doesn't necessarily indicate malicious behavior—both miners might
+have solved puzzles at the same time. What should the other nodes do?
+Which chain should the miners work on (which hash should their new block point
+to)? Which chain should standard nodes rely on as the truth? 
+
+The miners, if they are smart, will work on the chain that is longer. This is
+because the longer chain is more likely to have more miners working on it.
+It's important to understand that miners don't receive a reward for solving the
+puzzle or even broadcasting a valid block—they only receive the rewards if
+their block becomes part of the chain that everyone else agrees is valid. Thus,
+the miners are also incentivized to publish valid blocks, since the other nodes
+will only accept the block if it represents a valid ledger transition.
+
+Similarly, the standard nodes should also rely on the longer chain, because the
+majority of compute is likely working on that chain. On the Bitcoin network, it
+is very difficult for any one entity to create 7 blocks in a row. Thus,
+standard nodes wait until their relevant transaction is buried in at least 7
+blocks before treating it as the source of truth.
+
+### Ethereum
+
+#### The Idea
+Ethereum is a general-purpose blockchain. That is, you can implement Bitcoin
+and Namecoin, or any other application that acts like a decentralized database
+on top of Ethereum. 
+
+Let's start by understanding Ethereum's state and transitions. Since Ethereum
+has its own currency called Ether, its state and transitions are a superset of
+Bitcoin's. That is, its state has a mapping from ID to balance and there are
+transactions that allow nodes to transfer Ether.
+
+The genius of Ethereum is how it achieves its generality: storing entire
+applications inside the state and allowing nodes to send transactions to
+applications to interact with them.
+
+Firstly, how do you store an application on the blockchain? Simply store the
+application's code and its current internal state (whatever it needs to
+remember in between calls). For example, we could store Twitter on the
+blockchain. Twitter's internal state is all the tweets/profiles. The code is
+Twitter's codebase, which defines what it means to make a new tweet or like a
+post (i.e., how the state should change).
+
+A node can then send a transaction to an application containing an arbitrary
+message describing its request. In response, the application updates its
+internal state. Ethereum refers to these applications as *smart contracts*.
+
+Consider a counter application. We first create the contract by broadcasting a
+transaction with its code and initial internal state. The counter's internal
+state starts at 0. The code describes the behavior—increment the state by 1 in
+response to a message. The contract is added to the blockchain when a miner
+includes the transaction in a block, effectively updating the state to include
+this new application.
+
+When a node broadcasts a transaction targeting the counter contract, a miner
+picks up that transaction, and updates the blockchain state by running the
+contract's code. Now, the blockchain stores an updated version of the counter,
+with its count (state) incremented by 1.
+
+Just like in Bitcoin, all nodes are required to check the validity of blocks
+for themselves. Since the state can transform in arbitrary ways based on the
+contract's code, all nodes must run the contract for themselves to determine
+the new state of the chain.
+
+Ethereum is a *decentralized computer*. Users create applications and can run
+them on the Ethereum computer, taking advantage of its decentralization.
+
+#### Aside: Proof of Stake
+Proof of Stake is an alternative consensus mechanism. In Proof of Work, a
+node's voting power increases based on their computing power. In Proof of
+Stake, a node's voting power increases based on the amount of Ether they own
+(their "stake").  In both systems, acquiring voting power requires expending
+resources, making it difficult for one entity to acquire a majority. In
+addition, there are clever mechanisms leveraging smart contracts that
+automatically destroy the Ether of nodes who break the rules.
+
+In 2022, Ethereum switched from PoW to PoS, reducing the chain's energy usage
+by over 99%. In Ethereum PoS, nodes sign up to become validators by locking
+(staking) at least 32 ETH in a special smart contract. Every 12 seconds, a
+validator is randomly chosen to propose the new block—validators with more ETH
+staked have a higher chance of being chosen.
+
