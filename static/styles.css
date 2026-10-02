@@ -22,7 +22,9 @@ body {
     font-size: 0.925em;
 
     /* Computed by setting to fit-content on home page. */
-    max-width: 469.242px;
+    max-width: 469.211px;
+
+    padding: 0 5px;
   }
 }
 
