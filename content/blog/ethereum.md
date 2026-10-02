@@ -5,7 +5,7 @@
 > cried myself to sleep, and on that day I realized what horrors centralized
 > services can bring. I soon decided to quit."
 >
-> *Vitalik Buterin*
+> [*Vitalik Buterin*](https://en.wikipedia.org/wiki/Vitalik_Buterin)
 
 ### Bitcoin
 
