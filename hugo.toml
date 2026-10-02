@@ -1,2 +1,5 @@
 baseURL = 'https://lukejianu.github.io/'
 disableKinds = ['taxonomy', 'sitemap', 'RSS']
+
+[markup.goldmark.renderer]
+  unsafe = true
