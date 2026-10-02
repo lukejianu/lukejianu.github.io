@@ -1,5 +1,12 @@
+@font-face {
+  font-family: CharisSIL-Regular;
+
+  /* Downloaded from Google Fonts. */
+  src: url(./CharisSIL-Regular.ttf);
+}
+
 body {
-  font-family: "Charis SIL", serif;
+  font-family: CharisSIL-Regular;
   font-size: 1.1em;
 }
 
