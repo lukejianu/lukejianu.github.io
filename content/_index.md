@@ -12,5 +12,5 @@ In the past, I've:
  [CS2800](https://course.ccs.neu.edu/cs2800sp25) ([2x](https://course.ccs.neu.edu/cs2800sp24)),
  [CS4500](https://felleisen.org/matthias/4500-f24).
 
-You find my contact information on my [CV](/LukeJianu_Resume.pdf).
+You can find my email and more information on my [CV](/LukeJianu_Resume.pdf).
 
