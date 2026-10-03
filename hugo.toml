@@ -1,6 +1,3 @@
 baseURL = 'https://lukejianu.github.io/'
 disableKinds = ['taxonomy', 'sitemap', 'RSS']
 
-# To allow raw HTML in Markdown files.
-[markup.goldmark.renderer]
-  unsafe = true

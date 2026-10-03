@@ -1,11 +1,12 @@
 ## Luke Jianu
  
-Hi, I'm Luke, and I work on <span class="kubernetes">Kubernetes</span> at
-Palantir.
+Hi, I'm Luke, and I work on Kubernetes at [Palantir](https://www.palantir.com).
 
 In the past, I've:
 
-- interned at Databricks, Belvedere Trading, and Amazon Robotics.
+- interned at [Databricks](https://www.databricks.com),
+ [Belvedere Trading](https://www.belvederetrading.com), and
+ [Amazon Robotics](https://www.aboutamazon.com/news/tag/robotics).
 
 - TA'd a bunch of great classes:
  [CS2500](https://pages.github.khoury.northeastern.edu/2500/2024F),
